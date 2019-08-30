@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<tdr class='databricks'>
+    <connection-resolver>
+        <connection-builder>
+            <script file='connection-builder.js'/>
+        </connection-builder>
+	
+        <connection-normalizer>
+            <script file='connection-required.js' />
+        </connection-normalizer>
+    </connection-resolver>
+	
+    <driver-resolver>
+        <driver-match >
+            <driver-name type='regex'>Simba Spark*</driver-name>
+            <driver-version min="2.6.4"/>
+        </driver-match>
+    </driver-resolver>
+</tdr>
