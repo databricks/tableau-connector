@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dialect name='DatabricksDialect'
+         class='databricks'
+         base='Hive12Dialect'
+         version='18.1'>
+				 
+<function-map>		
+    <function group='cast' name='DATETIME' return-type='datetime'>
+        <formula>CAST(%1 AS TIMESTAMP)</formula>
+        <argument type='date' />
+    </function>
+
+    <function group='cast' name='DATETIME' return-type='datetime'>
+        <formula>CAST(%1 AS TIMESTAMP)</formula>
+        <argument type='real' />
+    </function>
+
+    <function group='cast' name='DATETIME' return-type='datetime'>
+        <formula>CAST(%1 AS TIMESTAMP)</formula>
+        <argument type='int' />
+    </function>
+
+    <function group='cast' name='DATETIME' return-type='datetime'>
+        <formula>CAST(%1 AS TIMESTAMP)</formula>
+        <argument type='str' />
+    </function>
+
+    <function group='cast' name='DATETIME' return-type='datetime'>
+        <formula>CAST(%1 as TIMESTAMP)</formula>
+        <argument type='datetime' />
+    </function>
+
+    <function group='cast' name='DATE' return-type='date'>
+        <formula>CAST(CAST(%1 AS TIMESTAMP) AS DATE)</formula>
+        <argument type='real' />
+    </function>
+
+    <function group='cast' name='DATE' return-type='date'>
+        <formula>CAST(CAST(%1 AS TIMESTAMP) AS DATE)</formula>
+        <argument type='int' />
+    </function>
+
+    <function group='cast' name='DATE' return-type='date'>
+        <formula>CAST(CAST(%1 AS TIMESTAMP) AS DATE)</formula>
+        <argument type='str' />
+    </function>
+
+    <function group='cast' name='DATE' return-type='date'>
+        <formula>CAST(CAST(%1 AS TIMESTAMP) AS DATE)</formula>
+        <argument type='datetime' />
+    </function>
+
+    <function group='cast' name='DATE' return-type='date'>
+        <formula>CAST(CAST(%1 AS TIMESTAMP) AS DATE)</formula>
+        <argument type='date' />
+    </function>
+
+    <function name='FLOAT' group='cast' return-type='real'>
+        <formula>DATEDIFF(CAST(%1 AS DATE), CAST('1900-01-01' AS DATE))</formula>
+        <argument type='date' />
+    </function>
+
+    <function name='INT' group='cast' return-type='int'>
+        <formula>DATEDIFF(CAST(%1 AS DATE), CAST('1900-01-01' AS DATE))</formula>
+        <argument type='date' />
+    </function>
+
+    <function group='string' name='SPLIT' return-type='str'>
+        <formula>
+            CASE WHEN (%1 IS NULL) THEN CAST(NULL AS STRING) WHEN NOT (%3 IS NULL) THEN COALESCE((CASE WHEN %3 &gt; 0 THEN SPLIT(%1, '%2')[%3-1] ELSE SPLIT(REVERSE(%1), REVERSE('%2'))[ABS(%3)-1] END), '') ELSE NULL END
+        </formula>
+        <argument type='str' />
+        <argument type='localstr' />
+        <argument type='localint' />
+    </function>
+
+    <function group='numeric' name='ATAN2' return-type='real'>
+        <formula>ATAN2(%1, %2)</formula>
+        <argument type='real' />
+        <argument type='real' />
+    </function>
+
+    <function group='numeric' name='CHAR' return-type='str'>
+        <formula>CHAR(%1)</formula>
+        <argument type='int' />
+    </function>
+
+    <function group='operator' name='$IN_SET$' return-type='bool'>
+        <formula>%1 IN (%2, %3, %4)</formula>
+        <argument type='date' />
+        <argument type='datetime' />
+        <argument type='datetime' />
+        <argument type='datetime' />
+    </function>
+
+    <date-function name='DATENAME' return-type='str'>
+        <formula>
+            FORMAT_NUMBER(FLOOR((14 + DATEDIFF(%2, TRUNC(%2,'YY')) + DATEDIFF(TRUNC(%2,'YY'), NEXT_DAY(TRUNC(%2,'YY'), 'MO')))/7), 0)
+        </formula>
+        <formula part='quarter'>CAST(QUARTER(%2) AS STRING)</formula>
+        <formula part='year'>CAST(YEAR(%2) AS STRING)</formula>
+        <formula part='month'>CAST(MONTH(%2) AS STRING)</formula>
+        <formula part='week'>
+            FORMAT_NUMBER(FLOOR((14 + DATEDIFF(%2, TRUNC(%2,'YY')) + DATEDIFF(TRUNC(%2,'YY'), NEXT_DAY(TRUNC(%2,'YY'), 'SU')))/7), 0)
+        </formula>
+        <formula part='day'>CAST(DAY(%2) AS STRING)</formula>
+        <formula part='weekday'>CAST(DAYOFWEEK(%2) AS STRING)</formula>
+        <formula part='dayofyear'>CAST(DAYOFYEAR(%2) AS STRING)</formula>
+        <formula part='hour'>CAST(HOUR(%2) AS STRING)</formula>
+        <formula part='minute'>CAST(MINUTE(%2) AS STRING)</formula>
+        <formula part='second'>CAST(SECOND(%2) AS STRING)</formula>
+        <argument type='localstr' />
+        <argument type='datetime' />
+    </date-function>
+
+    <date-function name='DATENAME' return-type='str'>
+        <formula>
+            FORMAT_NUMBER(FLOOR((14 + DATEDIFF(%2, TRUNC(%2,'YY')) + DATEDIFF(TRUNC(%2,'YY'), NEXT_DAY(TRUNC(%2,'YY'), 'MO')))/7), 0)
+        </formula>
+        <formula part='quarter'>CAST(QUARTER(%2) AS STRING)</formula>
+        <formula part='year'>CAST(YEAR(%2) AS STRING)</formula>
+        <formula part='month'>CAST(MONTH(%2) AS STRING)</formula>
+        <formula part='week'>
+            FORMAT_NUMBER(FLOOR((14 + DATEDIFF(%2, TRUNC(%2,'YY')) + DATEDIFF(TRUNC(%2,'YY'), NEXT_DAY(TRUNC(%2,'YY'), 'SU')))/7), 0)
+        </formula>
+        <formula part='day'>CAST(DAY(%2) AS STRING)</formula>
+        <formula part='weekday'>CAST(DAYOFWEEK(%2) AS STRING)</formula>
+        <formula part='dayofyear'>CAST(DAYOFYEAR(%2) AS STRING)</formula>
+        <formula part='hour'>CAST(HOUR(%2) AS STRING)</formula>
+        <formula part='minute'>CAST(MINUTE(%2) AS STRING)</formula>
+        <formula part='second'>CAST(SECOND(%2) AS STRING)</formula>
+        <argument type='localstr' />
+        <argument type='date' />
+    </date-function>
+</function-map>
+
+<sql-format>
+<date-parts>
+    <date-part-group>
+        <!-- Default: DATEADD and DATEDIFF -->
+        <part name='year' value='YEAR' />
+        <part name='quarter' value='QUARTER' />
+        <part name='month' value='MONTH' />
+        <part name='week' value='WEEK' />
+        <part name='weekday' value='DAY' />
+        <part name='dayofyear' value='DAY' />
+        <part name='day' value='DAY' />
+        <part name='hour' value='HOUR' />
+        <part name='minute' value='MINUTE' />
+        <part name='second' value='SECOND' />
+    </date-part-group>
+	 
+    <date-part-group>
+        <date-function name='DATENAME' />
+        <part name='year' value='YEAR' />
+        <part name='quarter' value='QUARTER' />
+        <part name='month' value='MONTH' />
+        <part name='week' value='WEEK' />
+        <part name='weekday' value='DAY' />
+        <part name='dayofyear' value='DAY' />
+        <part name='day' value='DAY' />
+        <part name='hour' value='HOUR' />
+        <part name='minute' value='MINUTE' />
+        <part name='second' value='SECOND' />
+        </date-part-group>
+</date-parts>
+	
+<format-is-distinct value='Keyword' />
+
+</sql-format>
+
+</dialect>
