@@ -1,10 +1,10 @@
 tableau-databricks
 ==================
-This directory contains the Tableau named connector for Databricks clusters.
+This directory contains the Tableau named connector for Databricks.
 
 The connector is built with the Tableau connector SDK and provides:
 - a simplified connection dialog
-- extensions of the Spark SQL dialect that clear all TDVT failures
+- extensions of the Spark SQL dialect that clear all Tableau Datasource Verification Tool tests
 - optimized ODBC connection settings
 
 The connector consists of a set of files that describe the UI elements needed
