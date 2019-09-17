@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="databricks">Databricks</string>
+  <string name="db_name_prompt">HTTP Path:</string>
+  <string name="server_prompt">Server Hostname:</string>
+</resources>
