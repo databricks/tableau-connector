@@ -1,4 +1,4 @@
-<!--
+﻿<!--
 Databricks Tableau Connector
 Copyright 2019 Databricks, Inc.
 
@@ -14,16 +14,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License. -->
 
-<connection-dialog class='databricks'>
-  <connection-config>
-    <authentication-mode value='Basic' />
-    <authentication-options>
-        <option name="UsernameAndPassword" default="true" value="Username and Password" />
-    </authentication-options>
-    <db-name-prompt value="@string/db_name_prompt/" />
-    <has-databases value='false' />
-    <has-schemas value='true' />
-    <server-prompt value="@string/server_prompt/" />
-    <show-service-prompt value="true" />
-  </connection-config>
-</connection-dialog>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="databricks">Databricks</string>
+  <string name="db_name_prompt">HTTP Path:</string>
+  <string name="server_prompt">Server Hostname:</string>
+</resources>
