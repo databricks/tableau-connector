@@ -16,4 +16,3 @@ ODBC parameter settings and a driver resolver that contains the ODBC
 driver version.
 
 See also https://docs.databricks.com/user-guide/bi/tableau.html
-
