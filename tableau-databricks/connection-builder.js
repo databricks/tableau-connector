@@ -16,7 +16,7 @@ limitations under the License.
 */
 
 (function dsbuilder(attr) {
-  var params = {};
+	var params = {};
 
 	// The Databricks cluster ODBC endpoint
 	params["HOST"] = attr["server"];
