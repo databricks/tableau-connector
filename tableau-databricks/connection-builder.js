@@ -40,8 +40,8 @@ limitations under the License.
 	// Minimum interval between consecutive polls for query execution status (1ms)
 	params["AsyncExecPollInterval"] = "1";
 
-  // Load ODBC connection string extras
-  var odbcConnectStringExtrasMap = {};
+	// Load ODBC connection string extras
+	var odbcConnectStringExtrasMap = {};
 	const attributeODBCConnectStringExtras = "odbc-connect-string-extras";
 
 	if (attributeODBCConnectStringExtras in attr) {
@@ -49,18 +49,18 @@ limitations under the License.
 			.ParseODBCConnectString(attr[attributeODBCConnectStringExtras]);
 	}
 
-  for (var key in odbcConnectStringExtrasMap) {
+	for (var key in odbcConnectStringExtrasMap) {
 		params[key] = odbcConnectStringExtrasMap[key];
 	}
 
-  var formattedParams = [];
-  formattedParams.push(
+	var formattedParams = [];
+	formattedParams.push(
 		connectionHelper.formatKeyValuePair(
 			driverLocator.keywordDriver, driverLocator.locateDriver(attr)));
 
-  for (var key in params) {
-    formattedParams.push(connectionHelper.formatKeyValuePair(key, params[key]));
-  }
-
-  return formattedParams;
+	for (var key in params) {
+		formattedParams.push(connectionHelper.formatKeyValuePair(key, params[key]));
+	}
+	
+	return formattedParams;
 })
