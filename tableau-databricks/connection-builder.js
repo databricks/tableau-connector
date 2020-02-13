@@ -40,6 +40,9 @@ limitations under the License.
 	// Minimum interval between consecutive polls for query execution status (1ms)
 	params["AsyncExecPollInterval"] = "1";
 
+	// Tell the ODBC driver that it is Tableau connecting.
+	params["UserAgentEntry"] = "Tableau";
+
 	var formattedParams = [];
   formattedParams.push(
 		connectionHelper.formatKeyValuePair(
