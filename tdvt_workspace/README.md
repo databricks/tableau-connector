@@ -1,9 +1,9 @@
-Instructions for running TDVT testing on the Tableau Databricks
-connector:
+Instructions for running TDVT testing on the Tableau Databricks connector:
 
 1. Install TDVT on your Windows machine using the guide from https://tableau.github.io/connector-plugin-sdk/docs/tdvt. The resulting tdvt_workspace directory should contain the following subdirectories: config, plugins, and tds.
 
 2. Prepare the testing tables.
+- Set `spark.sql.crossJoin.enabled true` in the cluster Spark configuration tab
 - Upload the TestV1 datasets from
    https://github.com/tableau/connector-plugin-sdk/tree/master/tests/datasets/TestV1
 from the `Data -> Add Data` menu in your Databricks environment.
