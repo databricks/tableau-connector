@@ -40,8 +40,11 @@ limitations under the License.
     </connection-resolver>
 	
     <driver-resolver>
-        <driver-match >
-            <driver-name type='regex'>Simba Spark*</driver-name>
+        <driver-match>
+            <driver-name type='regex'>Databricks.*</driver-name>
+        </driver-match>
+        <driver-match>
+            <driver-name type='regex'>Simba Spark.*</driver-name>
             <driver-version min="2.6.4"/>
         </driver-match>
     </driver-resolver>
