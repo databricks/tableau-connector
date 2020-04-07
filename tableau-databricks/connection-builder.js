@@ -45,7 +45,7 @@ limitations under the License.
 
 	// Load ODBC connection string extras
 	var odbcConnectStringExtrasMap = {};
-	const attributeODBCConnectStringExtras = "odbc-connect-string-extras";
+	const attributeODBCConnectStringExtras = connectionHelper.attributeODBCConnectStringExtras;
 
 	if (attributeODBCConnectStringExtras in attr) {
 		odbcConnectStringExtrasMap = connectionHelper
