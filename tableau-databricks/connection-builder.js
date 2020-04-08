@@ -16,7 +16,7 @@ limitations under the License.
 */
 
 (function dsbuilder(attr) {
-  var params = {};
+	var params = {};
 
 	// The Databricks cluster ODBC endpoint
 	params["HOST"] = attr["server"];
@@ -43,14 +43,27 @@ limitations under the License.
 	// Tell the ODBC driver that it is Tableau connecting.
 	params["UserAgentEntry"] = "Tableau";
 
+	// Load ODBC connection string extras
+	var odbcConnectStringExtrasMap = {};
+	const attributeODBCConnectStringExtras = connectionHelper.attributeODBCConnectStringExtras;
+
+	if (attributeODBCConnectStringExtras in attr) {
+		odbcConnectStringExtrasMap = connectionHelper
+			.ParseODBCConnectString(attr[attributeODBCConnectStringExtras]);
+	}
+
+	for (var key in odbcConnectStringExtrasMap) {
+		params[key] = odbcConnectStringExtrasMap[key];
+	}
+
 	var formattedParams = [];
-  formattedParams.push(
+	formattedParams.push(
 		connectionHelper.formatKeyValuePair(
 			driverLocator.keywordDriver, driverLocator.locateDriver(attr)));
 
-  for (var key in params) {
-    formattedParams.push(connectionHelper.formatKeyValuePair(key, params[key]));
-  }
-
-  return formattedParams;
+	for (var key in params) {
+		formattedParams.push(connectionHelper.formatKeyValuePair(key, params[key]));
+	}
+	
+	return formattedParams;
 })
