@@ -47,7 +47,7 @@ limitations under the License.
 	params["LCaseSspKeyName"] = "0";
 
 	// Prevent the driver to set properties by executing statements
-	params["ApplySSPWithQueries"] = "1";
+	params["ApplySSPWithQueries"] = "0";
 
 	// Enable cross join as a server-side property 
 	params["SSP_spark.sql.crossJoin.enabled"] = "true"
