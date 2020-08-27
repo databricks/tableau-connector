@@ -18,10 +18,21 @@ limitations under the License.
 (function dsbuilder(attr) {
 	var params = {};
 
+
 	// The Databricks cluster ODBC endpoint
 	params["HOST"] = attr["server"];
 	params["PORT"] = "443";
-	params["HTTPPATH"] = attr["v-http-path"] != null ? attr["v-http-path"] : attr["dbname"];
+
+	var httpPath = attr["v-http-path"];
+	var legacyHttpPath = attr["dbname"];
+
+	if(httpPath) {
+		params["HTTPPATH"] = httpPath;
+	}
+	else if (legacyHttpPath) {
+		params["HTTPPATH"] = legacyHttpPath;
+	}
+
 	params["THRIFTTRANSPORT"] = "2";
 	params["SPARKSERVERTYPE"] = "3";
 	params["SSL"] = "1";
@@ -39,7 +50,7 @@ limitations under the License.
 			params["PWD"] = attr["password"];
 			break;
 		default:
-			return connectionHelper.ThrowTableauException("Invalid authentication mode: " + attr["authentication"])
+			return connectionHelper.ThrowTableauException("Unsupported authentication mode: " + attr["authentication"]);
 	}
 
 	// Use the native HiveQL query emitted by Tableau
