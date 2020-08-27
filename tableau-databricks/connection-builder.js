@@ -16,31 +16,35 @@ limitations under the License.
 */
 
 (function dsbuilder(attr) {
+	var vendorDefined = {
+		attributeHttpPath: "v-http-path"
+	}
+
 	var params = {};
 
 
 	// The Databricks cluster ODBC endpoint
-	params["HOST"] = attr["server"];
+	params["HOST"] = attr[connectionHelper.attributeServer];
 	params["PORT"] = "443";
-	params["HTTPPATH"] = attr["v-http-path"];
+	params["HTTPPATH"] = attr[vendorDefined.attributeHttpPath];
 	params["THRIFTTRANSPORT"] = "2";
 	params["SPARKSERVERTYPE"] = "3";
 	params["SSL"] = "1";
 
-
-	switch (attr["authentication"]) {
+	var authenticationMode = attr[connectionHelper.attributeAuthentication];
+	switch (authenticationMode) {
 		case "auth-user-pass":
 			params["AUTHMECH"] = 3;
-			params["UID"] = attr["username"];
-			params["PWD"] = attr["password"];
+			params["UID"] = attr[connectionHelper.attributeUsername];
+			params["PWD"] = attr[connectionHelper.attributePassword];
 			break;
 		case "auth-pass":
 			params["AUTHMECH"] = 3;
 			params["UID"] = "token";
-			params["PWD"] = attr["password"];
+			params["PWD"] = attr[connectionHelper.attributePassword];
 			break;
 		default:
-			return connectionHelper.ThrowTableauException("Unsupported authentication mode: " + attr["authentication"]);
+			return connectionHelper.ThrowTableauException("Unsupported authentication mode: " + authenticationMode);
 	}
 
 	// Use the native HiveQL query emitted by Tableau
