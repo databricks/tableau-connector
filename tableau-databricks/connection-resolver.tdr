@@ -24,20 +24,13 @@ limitations under the License.
 	
         <connection-normalizer>
             <required-attributes>
-                <setImpersonateAttributes/>
-
-                <authentication-conditional operator="eq" value="auth-user-pass">
-                    <attribute-list>
-                        <attr>username</attr>
-                    </attribute-list>
-                </authentication-conditional>
-
                 <attribute-list>
                     <attr>class</attr>
                     <attr>server</attr>
-                    <attr>dbname</attr>
+                    <attr>v-http-path</attr>
                     <attr>one-time-sql</attr>
                     <attr>authentication</attr>
+                    <attr>username</attr>
                     <attr>password</attr>
                     <attr>authentication-type</attr>
                 </attribute-list>

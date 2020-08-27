@@ -22,7 +22,7 @@ limitations under the License. -->
         <validation-rule reg-exp="^([0-9A-Za-z-]+\.)+([0-9A-Za-z-]+\.?)$" />
     </field>
     <field name="v-http-path" label="@string/http_path_prompt/" category="endpoint" value-type="string">
-        <validation-rule reg-exp="[0-9A-Za-z-_/]+" />
+        <validation-rule reg-exp="^[0-9A-Za-z-_/]*$" />
     </field>
     <!-- /Endpoint -->
 

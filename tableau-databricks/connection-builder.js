@@ -22,17 +22,7 @@ limitations under the License.
 	// The Databricks cluster ODBC endpoint
 	params["HOST"] = attr["server"];
 	params["PORT"] = "443";
-
-	var httpPath = attr["v-http-path"];
-	var legacyHttpPath = attr["dbname"];
-
-	if(httpPath) {
-		params["HTTPPATH"] = httpPath;
-	}
-	else if (legacyHttpPath) {
-		params["HTTPPATH"] = legacyHttpPath;
-	}
-
+	params["HTTPPATH"] = attr["v-http-path"];
 	params["THRIFTTRANSPORT"] = "2";
 	params["SPARKSERVERTYPE"] = "3";
 	params["SSL"] = "1";
