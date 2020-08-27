@@ -21,15 +21,26 @@ limitations under the License.
 	// The Databricks cluster ODBC endpoint
 	params["HOST"] = attr["server"];
 	params["PORT"] = "443";
-	params["HTTPPATH"] = attr["dbname"];
+	params["HTTPPATH"] = attr["v-http-path"] != null ? attr["v-http-path"] : attr["dbname"];
 	params["THRIFTTRANSPORT"] = "2";
 	params["SPARKSERVERTYPE"] = "3";
 	params["SSL"] = "1";
 
-	// Authentication by username and password only
-	params["AUTHMECH"] = 3;
-	params["UID"] = attr["username"];
-	params["PWD"] = attr["password"];
+
+	switch (attr["authentication"]) {
+		case "auth-user-pass":
+			params["AUTHMECH"] = 3;
+			params["UID"] = attr["username"];
+			params["PWD"] = attr["password"];
+			break;
+		case "auth-pass":
+			params["AUTHMECH"] = 3;
+			params["UID"] = "token";
+			params["PWD"] = attr["password"];
+			break;
+		default:
+			return connectionHelper.ThrowTableauException("Invalid authentication mode: " + attr["authentication"])
+	}
 
 	// Use the native HiveQL query emitted by Tableau
 	params["USENATIVEQUERY"] = "1";
@@ -73,6 +84,6 @@ limitations under the License.
 	for (var key in params) {
 		formattedParams.push(connectionHelper.formatKeyValuePair(key, params[key]));
 	}
-	
+
 	return formattedParams;
 })
