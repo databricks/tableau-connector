@@ -22,7 +22,6 @@ limitations under the License.
 
 	var params = {};
 
-
 	// The Databricks cluster ODBC endpoint
 	params["HOST"] = attr[connectionHelper.attributeServer];
 	params["PORT"] = "443";
