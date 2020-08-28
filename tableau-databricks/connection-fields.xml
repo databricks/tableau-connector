@@ -15,7 +15,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License. -->
 
-<connection-fields>
+<connection-fields xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/tableau/connector-plugin-sdk/master/validation/connection_fields.xsd">
 
     <!-- Endpoint -->
     <field name="server" label="@string/server_prompt/" category="endpoint" value-type="string">
@@ -85,4 +85,9 @@ limitations under the License. -->
     </field>-->
     <!-- /Proxy -->
 
+    <field name="odbc-connect-string-extras" label="@string/odbc_extra_config_prompt/" category="advanced" value-type="string" optional="true">
+        <!-- valid keys: test, Test, SSP_spark.test -->
+        <!-- valid values: word, Word, some-arbitrary*string, {has-semicolon;}, {has{closing}}bracket;} -->
+        <validation-rule reg-exp="^(([a-zA-Z0-9_.-]+)=(([^;]*)|(\{(\}\}|[^}])*\}));)*(([a-zA-Z0-9_.-]+)=(([^{};]+)|(\{((\}\}|[^}])+)\})))?$" />
+    </field>
 </connection-fields>

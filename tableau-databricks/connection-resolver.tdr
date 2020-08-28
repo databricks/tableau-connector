@@ -32,6 +32,7 @@ limitations under the License.
                     <attr>authentication</attr>
                     <attr>username</attr>
                     <attr>password</attr>
+                    <attr>odbc-connect-string-extras</attr>
                 </attribute-list>
             </required-attributes>
         </connection-normalizer>

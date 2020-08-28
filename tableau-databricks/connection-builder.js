@@ -67,6 +67,42 @@ limitations under the License.
 	// Enable cross join as a server-side property 
 	params["SSP_spark.sql.crossJoin.enabled"] = "true"
 
+
+	function isValidKey(key) {
+		switch(key.toUpperCase()) {
+			// we eventually want to expose proxy settings as vendor defined fields. 
+			// For now we keep them as advanced ODBC config settings.
+			case "USEPROXY":
+			case "PROXYHOST":
+			case "PROXYPORT":
+			case "PROXYUID":
+			case "PROXYPWD":
+				return true;
+
+			case "TWOWAYSSL":
+			case "CLIENTCERT":
+			case "CLIENTPRIVATEKEY":
+			case "CLIENTPRIVATEKEYPASSWORD":
+			case "TRUSTEDCERTS":
+				return true;
+
+			case "SOCKETTIMEOUT":
+				return true;
+
+			case "GETTABLESWITHQUERY":
+				return true;
+		}
+
+		// prefixes are case sensitive
+		if (key.startsWith("SSP_")) {
+			return true;
+		}
+		if (key.startsWith("http.header.")) {
+			return true;
+		}
+		return false;
+	}
+
 	// Load ODBC connection string extras
 	var odbcConnectStringExtrasMap = {};
 	const attributeODBCConnectStringExtras = connectionHelper.attributeODBCConnectStringExtras;
@@ -77,6 +113,9 @@ limitations under the License.
 	}
 
 	for (var key in odbcConnectStringExtrasMap) {
+		if (!isValidKey(key)) {
+			return connectionHelper.ThrowTableauException("Invalid key in extra ODBC config: " + key);
+		}
 		params[key] = odbcConnectStringExtrasMap[key];
 	}
 
