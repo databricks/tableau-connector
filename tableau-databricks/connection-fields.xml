@@ -88,6 +88,6 @@ limitations under the License. -->
     <field name="odbc-connect-string-extras" label="@string/odbc_extra_config_prompt/" category="advanced" value-type="string" optional="true">
         <!-- valid keys: test, Test, SSP_spark.test -->
         <!-- valid values: word, Word, some-arbitrary*string, {has-semicolon;}, {has{closing}}bracket;} -->
-        <validation-rule reg-exp="^(([a-zA-Z0-9_.-]+)=(([^;]*)|(\{(\}\}|[^}])*\}));)*(([a-zA-Z0-9_.-]+)=(([^{};]+)|(\{((\}\}|[^}])+)\})))?$" />
+        <validation-rule reg-exp="^(([a-zA-Z0-9_.-]+)=(([^{};]*)|(\{((\}\}|[^}])*)\}));)*(([a-zA-Z0-9_.-]+)=(([^{};]*)|(\{((\}\}|[^}])*)\})))?$" />
     </field>
 </connection-fields>
