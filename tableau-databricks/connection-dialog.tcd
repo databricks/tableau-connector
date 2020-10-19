@@ -16,9 +16,10 @@ limitations under the License. -->
 
 <connection-dialog class='databricks'>
   <connection-config>
-    <authentication-mode value='Basic' />
+    <authentication-mode value='ComboBox' />
     <authentication-options>
-        <option name="UsernameAndPassword" default="true" value="Username and Password" />
+      <option name="UsernameAndPassword" value="username-password" />
+      <option name="OAuth" value="oauth" default="true" />
     </authentication-options>
     <db-name-prompt value="@string/db_name_prompt/" />
     <has-databases value='false' />

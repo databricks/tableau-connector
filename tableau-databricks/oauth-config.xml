@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pluginOAuthConfig>
+    <dbclass>databricks</dbclass>
+
+    <!-- test client credentials -->
+    <clientIdDesktop>...</clientIdDesktop>
+    <clientSecretDesktop>...</clientSecretDesktop>
+    <redirectUrisDesktop>http://localhost:55555/Callback</redirectUrisDesktop>
+
+    <!-- single tenant setup for Databricks test tenant -->
+    <!-- TODO: rename to common
+    <authUri>https://login.microsoftonline.com/common/oauth2/v2.0/authorize</authUri>
+    <tokenUri>http://login.microsoftonline.com/common/oauth2/v2.0/token</tokenUri> -->
+    <authUri>https://login.microsoftonline.com/e3fe3f22-4b98-4c04-82cc-d8817d1b17da/oauth2/v2.0/authorize</authUri>
+    <tokenUri>http://login.microsoftonline.com/e3fe3f22-4b98-4c04-82cc-d8817d1b17da/oauth2/v2.0/token</tokenUri>
+
+    <scopes>2ff814a6-3304-4ab8-85cb-cd0e6f879c1d/user_impersonation offline_access</scopes>
+
+    <!-- TODO: required attrs need review -->
+	<requiredAuthAttrs>class</requiredAuthAttrs>
+	<requiredAuthAttrs>server</requiredAuthAttrs>
+	<requiredAuthAttrs>dbname</requiredAuthAttrs>
+    <requiredAuthAttrs>oauth-client</requiredAuthAttrs>
+    <requiredRefreshAttrs>class</requiredRefreshAttrs>
+    <requiredRefreshAttrs>server</requiredRefreshAttrs>
+    <requiredRefreshAttrs>dbname</requiredRefreshAttrs>
+    <requiredRefreshAttrs>authentication</requiredRefreshAttrs>
+    <requiredRefreshAttrs>REFRESHTOKEN</requiredRefreshAttrs>
+    <requiredRefreshAttrs>oauth-client</requiredRefreshAttrs>
+    <capabilities>
+        <entry>
+            <key>CAP_PKCE_REQUIRES_CODE_CHALLENGE_METHOD</key>
+            <value>true</value>
+        </entry>
+    	<entry>
+    		<key>CAP_REQUIRE_PKCE</key>
+    		<value>true</value>
+    	</entry>
+        <entry>
+            <key>CAP_FIXED_PORT_IN_CALLBACK_URL</key>
+            <value>true</value>
+        </entry>
+    	<entry>
+    		<key>CAP_PKCE_REQUIRES_CODE_CHALLENGE_METHOD</key>
+    		<value>true</value>
+    	</entry>
+    </capabilities>
+    <attrMaps>
+        <entry>
+            <key>ACCESSTOKEN</key>
+            <value>access_token</value>
+        </entry>
+        <entry>
+            <key>REFRESHTOKEN</key>
+            <value>refresh_token</value>
+        </entry>
+        <entry>
+            <key>access-token-issue-time</key>
+            <value>issued_at</value>
+        </entry>
+        <entry>
+            <key>access-token-expires-in</key>
+            <value>expires_in</value>
+        </entry>
+    </attrMaps>
+ </pluginOAuthConfig>
