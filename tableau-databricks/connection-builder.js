@@ -16,35 +16,20 @@ limitations under the License.
 */
 
 (function dsbuilder(attr) {
-	var vendorDefined = {
-		attributeHttpPath: "v-http-path"
-	}
-
 	var params = {};
 
 	// The Databricks cluster ODBC endpoint
-	params["HOST"] = attr[connectionHelper.attributeServer];
+	params["HOST"] = attr["server"];
 	params["PORT"] = "443";
-	params["HTTPPATH"] = attr[vendorDefined.attributeHttpPath];
+	params["HTTPPATH"] = attr["dbname"];
 	params["THRIFTTRANSPORT"] = "2";
 	params["SPARKSERVERTYPE"] = "3";
 	params["SSL"] = "1";
 
-	var authenticationMode = attr[connectionHelper.attributeAuthentication];
-	switch (authenticationMode) {
-		case "auth-user-pass":
-			params["AUTHMECH"] = 3;
-			params["UID"] = attr[connectionHelper.attributeUsername];
-			params["PWD"] = attr[connectionHelper.attributePassword];
-			break;
-		case "auth-pass":
-			params["AUTHMECH"] = 3;
-			params["UID"] = "token";
-			params["PWD"] = attr[connectionHelper.attributePassword];
-			break;
-		default:
-			return connectionHelper.ThrowTableauException("Unsupported authentication mode: " + authenticationMode);
-	}
+	// Authentication by username and password only
+	params["AUTHMECH"] = 3;
+	params["UID"] = attr["username"];
+	params["PWD"] = attr["password"];
 
 	// Use the native HiveQL query emitted by Tableau
 	params["USENATIVEQUERY"] = "1";
@@ -88,6 +73,6 @@ limitations under the License.
 	for (var key in params) {
 		formattedParams.push(connectionHelper.formatKeyValuePair(key, params[key]));
 	}
-
+	
 	return formattedParams;
 })

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
+/*
 Databricks Tableau Connector
 Copyright 2019 Databricks, Inc.
 
@@ -13,10 +12,20 @@ Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
-limitations under the License. -->
+limitations under the License.
+*/
 
-<connection-metadata>
-    <database enabled='false' label="None" />
-    <schema enabled='true' label="@string/metadata_database_prompt/" />
-    <table enabled='true' label="@string/metadata_table_prompt/" />
-</connection-metadata>
+(function requiredAttrs(attr) {
+	var params = ["enum-with-permissions",
+			connectionHelper.attributeInitialSQL,
+			connectionHelper.attributeAuthentication,
+			"odbc-connect-string-extras"];
+
+	params.push("username");
+	params.push("password");
+
+	params.push(connectionHelper.attributeServer);
+	params = connectionHelper.SetImpersonateAttributes(attr, params);
+
+	return params;
+})
