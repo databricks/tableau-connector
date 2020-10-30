@@ -24,16 +24,15 @@ limitations under the License.
 	
         <connection-normalizer>
             <required-attributes>
-                <setImpersonateAttributes/>
                 <attribute-list>
                     <attr>class</attr>
                     <attr>server</attr>
-                    <attr>dbname</attr>
+                    <attr>v-http-path</attr>
                     <attr>one-time-sql</attr>
                     <attr>authentication</attr>
                     <attr>username</attr>
                     <attr>password</attr>
-                    <attr>authentication-type</attr>
+                    <attr>odbc-connect-string-extras</attr>
                 </attribute-list>
             </required-attributes>
         </connection-normalizer>
