@@ -148,6 +148,7 @@ limitations under the License.
         <customization name='CAP_ODBC_METADATA_SUPPRESS_SELECT_STAR' value='no' />
         <customization name='CAP_QUERY_TOP_0_METADATA' value='no' />
         <customization name='CAP_QUERY_WHERE_FALSE_METADATA' value='no' />
+        <customization name='CAP_SUPPRESS_ENUMERATE_TABLES_VIA_SQL' value='yes' />
     </customizations>
 </connection-customization>
 <connection-fields file='connection-fields.xml'/>
