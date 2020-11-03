@@ -34,15 +34,19 @@ limitations under the License.
 			params["UID"] = attr[connectionHelper.attributeUsername];
 			params["PWD"] = attr[connectionHelper.attributePassword];
 			break;
+
 		case "auth-pass":
 			params["AUTHMECH"] = 3;
 			params["UID"] = "token";
 			params["PWD"] = attr[connectionHelper.attributePassword];
+			break;
+
 		case "oauth":
 			params["AUTHMECH"] = 11;
 			params["AUTH_FLOW"] = 0; // token passthrough
 			params["AUTH_ACCESSTOKEN"] = attr["ACCESSTOKEN"];
 			break;
+
 		default:
 			return connectionHelper.ThrowTableauException("Unsupported authentication mode: " + authenticationMode);
 	}
