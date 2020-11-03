@@ -16,16 +16,12 @@ limitations under the License.
 */
 
 (function dsbuilder(attr) {
-	var vendorDefined = {
-		attributeHttpPath: "v-http-path"
-	}
-
 	var params = {};
 
 	// The Databricks cluster ODBC endpoint
 	params["HOST"] = attr[connectionHelper.attributeServer];
 	params["PORT"] = "443";
-	params["HTTPPATH"] = attr[vendorDefined.attributeHttpPath];
+	params["HTTPPATH"] = attr[connectionHelper.attributeDatabase];
 	params["THRIFTTRANSPORT"] = "2";
 	params["SPARKSERVERTYPE"] = "3";
 	params["SSL"] = "1";
