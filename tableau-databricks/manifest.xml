@@ -17,10 +17,6 @@ limitations under the License.
 -->
 
 <connector-plugin class='databricks' superclass='spark' plugin-version='1.0' name='@string/databricks/' version='18.1'>
-<vendor-information>
-    <company name="Test Company"/>
-    <support-link url = "http://example.com"/>
-</vendor-information>
 <connection-customization class="databricks" enabled="true" version="1.0">
     <vendor name="databricks"/>
     <driver name="databricks"/>
