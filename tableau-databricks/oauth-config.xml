@@ -16,16 +16,16 @@
     <scopes>2ff814a6-3304-4ab8-85cb-cd0e6f879c1d/user_impersonation</scopes>
 
     <!-- TODO: required attrs need review -->
-	<requiredAuthAttrs>class</requiredAuthAttrs>
-	<requiredAuthAttrs>server</requiredAuthAttrs>
-	<requiredAuthAttrs>dbname</requiredAuthAttrs>
-	<requiredAuthAttrs>instanceurl</requiredAuthAttrs>
+    <requiredAuthAttrs>class</requiredAuthAttrs>
+    <requiredAuthAttrs>server</requiredAuthAttrs>
+    <requiredAuthAttrs>dbname</requiredAuthAttrs>
+    <requiredAuthAttrs>instanceurl</requiredAuthAttrs>
     <requiredAuthAttrs>oauth-client</requiredAuthAttrs>
     <requiredRefreshAttrs>class</requiredRefreshAttrs>
     <requiredRefreshAttrs>server</requiredRefreshAttrs>
     <requiredRefreshAttrs>dbname</requiredRefreshAttrs>
     <requiredRefreshAttrs>authentication</requiredRefreshAttrs>
-	<requiredRefreshAttrs>instanceurl</requiredRefreshAttrs>
+    <requiredRefreshAttrs>instanceurl</requiredRefreshAttrs>
     <requiredRefreshAttrs>REFRESHTOKEN</requiredRefreshAttrs>
     <requiredRefreshAttrs>oauth-client</requiredRefreshAttrs>
     <capabilities>
@@ -37,17 +37,17 @@
             <key>CAP_PKCE_REQUIRES_CODE_CHALLENGE_METHOD</key>
             <value>true</value>
         </entry>
-    	<entry>
-    		<key>CAP_REQUIRE_PKCE</key>
-    		<value>true</value>
-    	</entry>
+        <entry>
+            <key>CAP_REQUIRE_PKCE</key>
+            <value>true</value>
+        </entry>
         <entry>
             <key>CAP_FIXED_PORT_IN_CALLBACK_URL</key>
             <value>true</value>
         </entry>
-    	<entry>
-    		<key>CAP_PKCE_REQUIRES_CODE_CHALLENGE_METHOD</key>
-    		<value>true</value>
+        <entry>
+            <key>CAP_PKCE_REQUIRES_CODE_CHALLENGE_METHOD</key>
+            <value>true</value>
         </entry>
         <entry>
             <key>CAP_CLIENT_SECRET_IN_URL_QUERY_PARAM</key>
