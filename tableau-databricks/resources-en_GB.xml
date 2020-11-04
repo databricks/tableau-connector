@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
 Databricks Tableau Connector
 Copyright 2019 Databricks, Inc.
@@ -20,6 +20,7 @@ limitations under the License. -->
   <string name="http_path_prompt">HTTP Path</string>
 
   <string name="authentication_prompt">Authentication</string>
+  <string name="authentication_label_azure_ad">Azure Active Directory</string>
   <string name="authentication_label_token">Personal Access Token</string>
   <string name="authentication_label_user_pass">Username / Password</string>
 
