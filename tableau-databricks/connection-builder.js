@@ -29,15 +29,24 @@ limitations under the License.
 	var authenticationMode = attr[connectionHelper.attributeAuthentication];
 	switch (authenticationMode) {
 		case "auth-user-pass":
+		case "username-password":
 			params["AUTHMECH"] = 3;
 			params["UID"] = attr[connectionHelper.attributeUsername];
 			params["PWD"] = attr[connectionHelper.attributePassword];
 			break;
+
 		case "auth-pass":
 			params["AUTHMECH"] = 3;
 			params["UID"] = "token";
 			params["PWD"] = attr[connectionHelper.attributePassword];
 			break;
+
+		case "oauth":
+			params["AUTHMECH"] = 11;
+			params["AUTH_FLOW"] = 0; // token passthrough
+			params["AUTH_ACCESSTOKEN"] = attr["ACCESSTOKEN"];
+			break;
+
 		default:
 			return connectionHelper.ThrowTableauException("Unsupported authentication mode: " + authenticationMode);
 	}
@@ -54,14 +63,17 @@ limitations under the License.
 	// Tell the ODBC driver that it is Tableau connecting.
 	params["UserAgentEntry"] = "Tableau";
 
+
+	// Commented out for now, not critical, removing this enables Azure AD with a 2048 character connection string
 	// Prevent the driver from turning server-side properties to lower-case
-	params["LCaseSspKeyName"] = "0";
+	// params["LCaseSspKeyName"] = "0";
 
 	// Prevent the driver to set properties by executing statements
-	params["ApplySSPWithQueries"] = "0";
+	// params["ApplySSPWithQueries"] = "0";
 
-	// Enable cross join as a server-side property 
-	params["SSP_spark.sql.crossJoin.enabled"] = "true"
+	// Enable cross join as a server-side property
+	// params["SSP_spark.sql.crossJoin.enabled"] = "true"
+
 
 	// Load ODBC connection string extras
 	var odbcConnectStringExtrasMap = {};

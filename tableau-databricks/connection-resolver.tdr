@@ -32,7 +32,13 @@ limitations under the License.
                     <attr>authentication</attr>
                     <attr>username</attr>
                     <attr>password</attr>
+                    <attr>instanceurl</attr>
                     <attr>odbc-connect-string-extras</attr>
+                    <attr>ACCESSTOKEN</attr>
+                    <attr>REFRESHTOKEN</attr>
+                    <attr>access-token-issue-time</attr>
+                    <attr>access-token-expires-in</attr>
+                    <attr>oauth-client</attr>
                 </attribute-list>
             </required-attributes>
         </connection-normalizer>
@@ -44,7 +50,7 @@ limitations under the License.
         </driver-match>
         <driver-match>
             <driver-name type='regex'>Simba Spark.*</driver-name>
-            <driver-version min="2.6.4"/>
+            <driver-version min="2.6.15"/>
         </driver-match>
     </driver-resolver>
 </tdr>

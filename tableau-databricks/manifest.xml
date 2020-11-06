@@ -155,4 +155,5 @@ limitations under the License.
 <connection-metadata file="connection-metadata.xml"/>
 <connection-resolver file="connection-resolver.tdr"/>
 <dialect file='dialect.tdd'/>
+<oauth-config file='oauth-config.xml'/>
 </connector-plugin>

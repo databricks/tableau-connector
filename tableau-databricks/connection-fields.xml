@@ -24,11 +24,38 @@ limitations under the License. -->
     <!-- /Endpoint -->
 
     <!-- Authentication -->
-    <field name="authentication" label="@string/authentication_prompt/" category="authentication" value-type="selection" default-value="auth-pass">
+    <field name="authentication" label="@string/authentication_prompt/" category="authentication" value-type="selection" default-value="oauth">
         <selection-group>
+            <option label="@string/authentication_label_azure_ad/" value="oauth"/>
             <option label="@string/authentication_label_token/" value="auth-pass"/>
             <option label="@string/authentication_label_user_pass/" value="auth-user-pass" />
         </selection-group>
+    </field>
+
+    <field name="v-show-advanced-aad-options" label="@string/authentication_aad_advanced_options_prompt/" category="authentication" value-type="boolean">
+        <conditions>
+          <condition field="authentication" value="oauth" />
+        </conditions>
+        <boolean-options>
+            <false-value value="" />
+            <true-value value="true" />
+        </boolean-options>
+    </field>
+
+    <field name="instanceurl" label="@string/authentication_aad_endpoint_prompt/" category="authentication" value-type="string" default-value="https://login.microsoftonline.com/common/" editable="false">
+        <conditions>
+          <condition field="v-show-advanced-aad-options" value="" />
+        </conditions>
+    </field>
+
+    <field name="instanceurl" label="@string/authentication_aad_endpoint_prompt/" category="authentication" value-type="string" default-value="https://login.microsoftonline.com/common/">
+        <conditions>
+          <condition field="v-show-advanced-aad-options" value="true" />
+        </conditions>
+        <!-- limit to well-known domains:
+              https://*.microsoftonline.(com|us|de|cn)/ (public, govcloud, germany, china),
+              https://*.chinacloudapi.cn/ (China) -->
+        <validation-rule reg-exp="^https:\/\/([a-zA-Z0-9-.]+\.)?((microsoftonline\.(com|us|cn|de))|chinacloudapi\.cn)/"/>
     </field>
 
     <field name="username" label="@string/username_prompt/" category="authentication" value-type="string">
