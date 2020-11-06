@@ -50,7 +50,7 @@ limitations under the License.
         </driver-match>
         <driver-match>
             <driver-name type='regex'>Simba Spark.*</driver-name>
-            <driver-version min="2.6.4"/>
+            <driver-version min="2.6.15"/>
         </driver-match>
     </driver-resolver>
 </tdr>

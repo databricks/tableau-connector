@@ -23,7 +23,8 @@ limitations under the License. -->
   <string name="authentication_label_azure_ad">Azure Active Directory</string>
   <string name="authentication_label_token">Personal Access Token</string>
   <string name="authentication_label_user_pass">Username / Password</string>
-  <string name="authentication_endpoint_prompt">Azure AD endpoint</string>
+  <string name="authentication_aad_advanced_options_prompt">Advanced configuration for Azure AD</string>
+  <string name="authentication_aad_endpoint_prompt">Azure AD endpoint</string>
 
   <string name="username_prompt">Username</string>
   <string name="password_prompt">Password</string>
