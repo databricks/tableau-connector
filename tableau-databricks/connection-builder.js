@@ -63,6 +63,18 @@ limitations under the License.
 	// Tell the ODBC driver that it is Tableau connecting.
 	params["UserAgentEntry"] = "Tableau";
 
+
+	// Commented out for now, not critical, removing this enables Azure AD with a 2048 character connection string
+	// Prevent the driver from turning server-side properties to lower-case
+	// params["LCaseSspKeyName"] = "0";
+
+	// Prevent the driver to set properties by executing statements
+	// params["ApplySSPWithQueries"] = "0";
+
+	// Enable cross join as a server-side property
+	// params["SSP_spark.sql.crossJoin.enabled"] = "true"
+
+
 	// Load ODBC connection string extras
 	var odbcConnectStringExtrasMap = {};
 	const attributeODBCConnectStringExtras = connectionHelper.attributeODBCConnectStringExtras;
