@@ -63,21 +63,18 @@ limitations under the License. -->
             <condition field="authentication" value="auth-user-pass" />
         </conditions>
     </field>
+
     <field name="password" label="@string/password_prompt/" category="authentication" value-type="string" secure="true">
-        <conditions>
-            <condition field="authentication" value="auth-user-pass" />
-        </conditions>
+     <conditions>
+         <condition field="authentication" value="auth-pass" />
+         <condition field="authentication" value="auth-user-pass" />
+      </conditions>
     </field>
 
-    <field name="password" label="@string/token_prompt/" category="authentication" value-type="string" secure="true">
-        <conditions>
-            <condition field="authentication" value="auth-pass" />
-        </conditions>
-    </field>
     <!-- /Authentication -->
 
     <!-- Proxy -->
-    
+
     <!-- TODO: enable once 'secure="true"' is supported -->
     <!--
     <field name="use-proxy" label="Use Proxy" category="advanced" value-type="boolean">
