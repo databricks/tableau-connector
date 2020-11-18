@@ -25,7 +25,6 @@ limitations under the License. -->
 
   <string name="username_prompt">Username</string>
   <string name="password_prompt">Password</string>
-  <string name="token_prompt">Personal Access Token</string>
 
   <string name="odbc_extra_config_prompt">Extra ODBC options ('key=value;key2=value2;...')</string>
 
