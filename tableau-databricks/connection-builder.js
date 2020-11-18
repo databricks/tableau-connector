@@ -16,20 +16,40 @@ limitations under the License.
 */
 
 (function dsbuilder(attr) {
-  var params = {};
+	var params = {};
 
 	// The Databricks cluster ODBC endpoint
-	params["HOST"] = attr["server"];
+	params["HOST"] = attr[connectionHelper.attributeServer];
 	params["PORT"] = "443";
-	params["HTTPPATH"] = attr["dbname"];
+	params["HTTPPATH"] = attr[connectionHelper.attributeDatabase];
 	params["THRIFTTRANSPORT"] = "2";
 	params["SPARKSERVERTYPE"] = "3";
 	params["SSL"] = "1";
 
-	// Authentication by username and password only
-	params["AUTHMECH"] = 3;
-	params["UID"] = attr["username"];
-	params["PWD"] = attr["password"];
+	var authenticationMode = attr[connectionHelper.attributeAuthentication];
+	switch (authenticationMode) {
+		case "auth-user-pass":
+		case "username-password":
+			params["AUTHMECH"] = 3;
+			params["UID"] = attr[connectionHelper.attributeUsername];
+			params["PWD"] = attr[connectionHelper.attributePassword];
+			break;
+
+		case "auth-pass":
+			params["AUTHMECH"] = 3;
+			params["UID"] = "token";
+			params["PWD"] = attr[connectionHelper.attributePassword];
+			break;
+
+		case "oauth":
+			params["AUTHMECH"] = 11;
+			params["AUTH_FLOW"] = 0; // token passthrough
+			params["AUTH_ACCESSTOKEN"] = attr["ACCESSTOKEN"];
+			break;
+
+		default:
+			return connectionHelper.ThrowTableauException("Unsupported authentication mode: " + authenticationMode);
+	}
 
 	// Use the native HiveQL query emitted by Tableau
 	params["USENATIVEQUERY"] = "1";
@@ -40,14 +60,42 @@ limitations under the License.
 	// Minimum interval between consecutive polls for query execution status (1ms)
 	params["AsyncExecPollInterval"] = "1";
 
+	// Tell the ODBC driver that it is Tableau connecting.
+	params["UserAgentEntry"] = "Tableau";
+
+
+	// Commented out for now, not critical, removing this enables Azure AD with a 2048 character connection string
+	// Prevent the driver from turning server-side properties to lower-case
+	// params["LCaseSspKeyName"] = "0";
+
+	// Prevent the driver to set properties by executing statements
+	// params["ApplySSPWithQueries"] = "0";
+
+	// Enable cross join as a server-side property
+	// params["SSP_spark.sql.crossJoin.enabled"] = "true"
+
+
+	// Load ODBC connection string extras
+	var odbcConnectStringExtrasMap = {};
+	const attributeODBCConnectStringExtras = connectionHelper.attributeODBCConnectStringExtras;
+
+	if (attributeODBCConnectStringExtras in attr) {
+		odbcConnectStringExtrasMap = connectionHelper
+			.ParseODBCConnectString(attr[attributeODBCConnectStringExtras]);
+	}
+
+	for (var key in odbcConnectStringExtrasMap) {
+		params[key] = odbcConnectStringExtrasMap[key];
+	}
+
 	var formattedParams = [];
-  formattedParams.push(
+	formattedParams.push(
 		connectionHelper.formatKeyValuePair(
 			driverLocator.keywordDriver, driverLocator.locateDriver(attr)));
 
-  for (var key in params) {
-    formattedParams.push(connectionHelper.formatKeyValuePair(key, params[key]));
-  }
+	for (var key in params) {
+		formattedParams.push(connectionHelper.formatKeyValuePair(key, params[key]));
+	}
 
-  return formattedParams;
+	return formattedParams;
 })

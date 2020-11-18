@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Databricks Tableau Connector
+Copyright 2019 Databricks, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. -->
+
+<connection-fields>
+
+    <!-- Endpoint -->
+    <field name="server" label="@string/server_prompt/" category="endpoint" value-type="string">
+        <validation-rule reg-exp="^([0-9A-Za-z-]+\.)+([0-9A-Za-z-]+\.?)$" />
+    </field>
+    <!-- /Endpoint -->
+
+    <!-- Authentication -->
+    <field name="authentication" label="@string/authentication_prompt/" category="authentication" value-type="selection" default-value="oauth">
+        <selection-group>
+            <option label="@string/authentication_label_azure_ad/" value="oauth"/>
+            <option label="@string/authentication_label_token/" value="auth-pass"/>
+            <option label="@string/authentication_label_user_pass/" value="auth-user-pass" />
+        </selection-group>
+    </field>
+
+    <field name="v-show-advanced-aad-options" label="@string/authentication_aad_advanced_options_prompt/" category="authentication" value-type="boolean">
+        <conditions>
+          <condition field="authentication" value="oauth" />
+        </conditions>
+        <boolean-options>
+            <false-value value="" />
+            <true-value value="true" />
+        </boolean-options>
+    </field>
+
+    <field name="instanceurl" label="@string/authentication_aad_endpoint_prompt/" category="authentication" value-type="string" default-value="https://login.microsoftonline.com/common/" editable="false">
+        <conditions>
+          <condition field="v-show-advanced-aad-options" value="" />
+        </conditions>
+    </field>
+
+    <field name="instanceurl" label="@string/authentication_aad_endpoint_prompt/" category="authentication" value-type="string" default-value="https://login.microsoftonline.com/common/">
+        <conditions>
+          <condition field="v-show-advanced-aad-options" value="true" />
+        </conditions>
+        <!-- limit to well-known domains:
+              https://*.microsoftonline.(com|us|de|cn)/ (public, govcloud, germany, china),
+              https://*.chinacloudapi.cn/ (China) -->
+        <validation-rule reg-exp="^https:\/\/([a-zA-Z0-9-.]+\.)?((microsoftonline\.(com|us|cn|de))|chinacloudapi\.cn)/"/>
+    </field>
+
+    <field name="username" label="@string/username_prompt/" category="authentication" value-type="string">
+        <conditions>
+            <condition field="authentication" value="auth-user-pass" />
+        </conditions>
+    </field>
+    <field name="password" label="@string/password_prompt/" category="authentication" value-type="string" secure="true">
+        <conditions>
+            <condition field="authentication" value="auth-user-pass" />
+        </conditions>
+    </field>
+
+    <field name="password" label="@string/token_prompt/" category="authentication" value-type="string" secure="true">
+        <conditions>
+            <condition field="authentication" value="auth-pass" />
+        </conditions>
+    </field>
+    <!-- /Authentication -->
+
+    <!-- Proxy -->
+    
+    <!-- TODO: enable once 'secure="true"' is supported -->
+    <!--
+    <field name="use-proxy" label="Use Proxy" category="advanced" value-type="boolean">
+        <boolean-options>
+            <false-value value="" />
+            <true-value value="true" />
+        </boolean-options>
+    </field>
+    <field name="proxy-host" label="Proxy Host" category="advanced" value-type="string">
+        <conditions>
+            <condition field="use-proxy" value="true" />
+        </conditions>
+    </field>
+    <field name="proxy-port" label="Proxy Port" category="advanced" value-type="string">
+        <conditions>
+            <condition field="use-proxy" value="true" />
+        </conditions>
+        <validation-rule reg-exp="^[0-9]*$" />
+    </field>
+    <field name="proxy-user" label="Proxy Username" category="advanced" value-type="string">
+        <conditions>
+            <condition field="use-proxy" value="true" />
+        </conditions>
+    </field>
+    <field name="proxy-pass" label="Proxy Password" category="advanced" value-type="string" secure="true">
+        <conditions>
+            <condition field="use-proxy" value="true" />
+        </conditions>
+    </field>-->
+    <!-- /Proxy -->
+
+    <field name="odbc-connect-string-extras" label="@string/odbc_extra_config_prompt/" category="advanced" value-type="string" optional="true">
+        <!-- valid keys: test, Test, SSP_spark.test -->
+        <!-- valid values: word, Word, some-arbitrary*string, {has-semicolon;}, {has{closing}}bracket;} -->
+        <validation-rule reg-exp="^(([a-zA-Z0-9_.-]+)=(([^{};]*)|(\{((\}\}|[^}])*)\}));)*(([a-zA-Z0-9_.-]+)=(([^{};]*)|(\{((\}\}|[^}])*)\})))?$" />
+    </field>
+</connection-fields>

@@ -16,8 +16,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<connector-plugin class='databricks' superclass='spark' plugin-version='0.1' name='Databricks' version='18.1'>
-<connection-customization class="databricks" enabled="true" version="0.1">
+<connector-plugin class='databricks' superclass='spark' plugin-version='1.0' name='@string/databricks/' version='18.1'>
+<connection-customization class="databricks" enabled="true" version="1.0">
     <vendor name="databricks"/>
     <driver name="databricks"/>
     <customizations>
@@ -148,9 +148,12 @@ limitations under the License.
         <customization name='CAP_ODBC_METADATA_SUPPRESS_SELECT_STAR' value='no' />
         <customization name='CAP_QUERY_TOP_0_METADATA' value='no' />
         <customization name='CAP_QUERY_WHERE_FALSE_METADATA' value='no' />
+        <customization name='CAP_SUPPRESS_ENUMERATE_TABLES_VIA_SQL' value='yes' />
     </customizations>
 </connection-customization>
-<connection-dialog file='connection-dialog.tcd'/>
+<connection-fields file='connection-fields.xml'/>
+<connection-metadata file="connection-metadata.xml"/>
 <connection-resolver file="connection-resolver.tdr"/>
 <dialect file='dialect.tdd'/>
+<oauth-config file='oauth-config.xml'/>
 </connector-plugin>
