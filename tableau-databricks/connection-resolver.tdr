@@ -35,11 +35,6 @@ limitations under the License.
                     <attr>authentication-type</attr>
                     <attr>instanceurl</attr>
                     <attr>odbc-connect-string-extras</attr>
-                    <attr>ACCESSTOKEN</attr>
-                    <attr>REFRESHTOKEN</attr>
-                    <attr>access-token-issue-time</attr>
-                    <attr>access-token-expires-in</attr>
-                    <attr>oauth-client</attr>
                 </attribute-list>
             </required-attributes>
         </connection-normalizer>
