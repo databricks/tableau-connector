@@ -29,7 +29,7 @@ limitations under the License.
 	var authenticationMode = attr[connectionHelper.attributeAuthentication];
 	switch (authenticationMode) {
 		case "auth-user-pass":
-		case "username-password":
+		case "Username and Password":
 			params["AUTHMECH"] = 3;
 			params["UID"] = attr[connectionHelper.attributeUsername];
 			params["PWD"] = attr[connectionHelper.attributePassword];

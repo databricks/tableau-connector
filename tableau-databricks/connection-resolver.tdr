@@ -33,7 +33,6 @@ limitations under the License.
                     <attr>username</attr>
                     <attr>password</attr>
                     <attr>authentication-type</attr>
-                    <attr>instanceurl</attr>
                     <attr>odbc-connect-string-extras</attr>
                 </attribute-list>
             </required-attributes>

@@ -32,30 +32,14 @@ limitations under the License. -->
         </selection-group>
     </field>
 
-    <field name="v-show-advanced-aad-options" label="@string/authentication_aad_advanced_options_prompt/" category="authentication" value-type="boolean">
+    <field name="instanceurl" label="@string/authentication_aad_endpoint_prompt/" category="advanced" value-type="string" default-value="https://login.microsoftonline.com/common">
         <conditions>
           <condition field="authentication" value="oauth" />
         </conditions>
-        <boolean-options>
-            <false-value value="" />
-            <true-value value="true" />
-        </boolean-options>
-    </field>
-
-    <field name="instanceurl" label="@string/authentication_aad_endpoint_prompt/" category="authentication" value-type="string" default-value="https://login.microsoftonline.com/common/" editable="false">
-        <conditions>
-          <condition field="v-show-advanced-aad-options" value="" />
-        </conditions>
-    </field>
-
-    <field name="instanceurl" label="@string/authentication_aad_endpoint_prompt/" category="authentication" value-type="string" default-value="https://login.microsoftonline.com/common/">
-        <conditions>
-          <condition field="v-show-advanced-aad-options" value="true" />
-        </conditions>
-        <!-- limit to well-known domains:
-              https://*.microsoftonline.(com|us|de|cn)/ (public, govcloud, germany, china),
-              https://*.chinacloudapi.cn/ (China) -->
-        <validation-rule reg-exp="^https:\/\/([a-zA-Z0-9-.]+\.)?((microsoftonline\.(com|us|cn|de))|chinacloudapi\.cn)/"/>
+           <!-- limit to well-known domains:
+                 https://*.microsoftonline.(com|us|de|cn)/ (public, govcloud, germany, china),
+                 https://*.chinacloudapi.cn/ (China) -->
+           <validation-rule reg-exp="^https:\/\/([a-zA-Z0-9-.]+\.)?((microsoftonline\.(com|us|cn|de))|chinacloudapi\.cn)/"/>
     </field>
 
     <field name="username" label="@string/username_prompt/" category="authentication" value-type="string">
