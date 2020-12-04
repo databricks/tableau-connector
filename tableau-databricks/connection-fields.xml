@@ -32,7 +32,7 @@ limitations under the License. -->
         </selection-group>
     </field>
 
-    <field name="instanceurl" label="@string/authentication_aad_endpoint_prompt/" category="advanced" value-type="string" default-value="https://login.microsoftonline.com/common">
+    <field name="instanceurl" label="@string/authentication_aad_endpoint_prompt/" category="authentication" value-type="string" default-value="https://login.microsoftonline.com/common">
         <conditions>
           <condition field="authentication" value="oauth" />
         </conditions>
