@@ -140,7 +140,7 @@ limitations under the License.
         <customization name='CAP_QUERY_WRAP_SUBQUERY_WITH_TOP' value='no' />
 
         <!-- ### Properties set to control the metadata queries -->
-				<customization name='CAP_FAST_METADATA' value='no' />
+        <customization name='CAP_FAST_METADATA' value='no' />
         <customization name='CAP_ODBC_SUPPRESS_PREPARED_QUERY_FOR_NON_COMMAND_QUERIES' value='yes' />
         <customization name='CAP_ODBC_METADATA_SUPPRESS_PREPARED_QUERY' value='yes' />
         <customization name='CAP_ODBC_METADATA_SUPPRESS_EXECUTED_QUERY' value='yes' />
