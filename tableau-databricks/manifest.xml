@@ -140,12 +140,13 @@ limitations under the License.
         <customization name='CAP_QUERY_WRAP_SUBQUERY_WITH_TOP' value='no' />
 
         <!-- ### Properties set to control the metadata queries -->
-        <customization name='CAP_FAST_METADATA' value='no' />
+				<customization name='CAP_FAST_METADATA' value='no' />
         <customization name='CAP_ODBC_SUPPRESS_PREPARED_QUERY_FOR_NON_COMMAND_QUERIES' value='yes' />
-        <customization name='CAP_ODBC_METADATA_SUPPRESS_PREPARED_QUERY' value='no' />
-        <customization name='CAP_ODBC_METADATA_SUPPRESS_EXECUTED_QUERY' value='no' />
-        <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLCOLUMNS_API' value='yes' />
-        <customization name='CAP_ODBC_METADATA_SUPPRESS_SELECT_STAR' value='no' />
+        <customization name='CAP_ODBC_METADATA_SUPPRESS_PREPARED_QUERY' value='yes' />
+        <customization name='CAP_ODBC_METADATA_SUPPRESS_EXECUTED_QUERY' value='yes' />
+        <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLCOLUMNS_API' value='no' />
+        <customization name='CAP_ODBC_METADATA_SUPPRESS_SELECT_STAR' value='yes' />
+        <customization name='CAP_ODBC_SUPPRESS_CATALOG_NAME' value='yes'/>
         <customization name='CAP_QUERY_TOP_0_METADATA' value='no' />
         <customization name='CAP_QUERY_WHERE_FALSE_METADATA' value='no' />
         <customization name='CAP_SUPPRESS_ENUMERATE_TABLES_VIA_SQL' value='yes' />
