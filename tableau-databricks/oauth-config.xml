@@ -21,6 +21,10 @@
 
     <capabilities>
         <entry>
+            <key>OAUTH_CAP_REQUIRES_PROMPT_SELECT_ACCOUNT</key>
+            <value>true</value>
+        </entry>
+        <entry>
             <key>CAP_SUPPORTS_CUSTOM_DOMAIN</key>
             <value>true</value>
         </entry>
