@@ -26,20 +26,16 @@ limitations under the License. -->
     <!-- Authentication -->
     <field name="authentication" label="@string/authentication_prompt/" category="authentication" value-type="selection" default-value="oauth">
         <selection-group>
-            <option label="@string/authentication_label_azure_ad/" value="oauth"/>
+            <option label="@string/authentication_label_oauth/" value="oauth"/>
             <option label="@string/authentication_label_token/" value="auth-pass"/>
             <option label="@string/authentication_label_user_pass/" value="auth-user-pass" />
         </selection-group>
     </field>
 
-    <field name="instanceurl" label="@string/authentication_aad_endpoint_prompt/" category="authentication" value-type="string" default-value="https://login.microsoftonline.com/common">
+    <field name="instanceurl" label="@string/authentication_oauth_endpoint_prompt/" category="authentication" value-type="string" default-value="https://login.microsoftonline.com/common/oauth2/v2.0">
         <conditions>
           <condition field="authentication" value="oauth" />
         </conditions>
-           <!-- limit to well-known domains:
-                 https://*.microsoftonline.(com|us|de|cn)/ (public, govcloud, germany, china),
-                 https://*.chinacloudapi.cn/ (China) -->
-           <validation-rule reg-exp="^https:\/\/([a-zA-Z0-9-.]+\.)?((microsoftonline\.(com|us|cn|de))|chinacloudapi\.cn)/"/>
     </field>
 
     <field name="username" label="@string/username_prompt/" category="authentication" value-type="string">
