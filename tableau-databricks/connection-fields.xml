@@ -19,7 +19,7 @@ limitations under the License. -->
 
     <!-- Endpoint -->
     <field name="server" label="@string/server_prompt/" category="endpoint" value-type="string">
-        <validation-rule reg-exp="^([0-9A-Za-z-]+\.)+([0-9A-Za-z-]+\.?)$" />
+        <validation-rule reg-exp="^([0-9A-Za-z-]+\.)+([0-9A-Za-z-]+)$" />
     </field>
     <!-- /Endpoint -->
 
@@ -34,10 +34,11 @@ limitations under the License. -->
         </selection-group>
     </field>
 
-    <field name="instanceurl" label="@string/authentication_oauth_endpoint_prompt/" category="authentication" value-type="string" default-value="https://login.microsoftonline.com/common/oauth2/v2.0">
+    <field name="instanceurl" label="@string/authentication_oauth_endpoint_prompt/" category="authentication" value-type="string" default-value="Enter address e.g. https://[Server Hostname]/oidc">
         <conditions>
           <condition field="authentication" value="oauth" />
         </conditions>
+        <validation-rule reg-exp="^https:\/\/([0-9A-Za-z-]+\.)+([0-9A-Za-z-]+)\/oidc$" />
     </field>
 
     <field name="username" label="@string/username_prompt/" category="authentication" value-type="string">
