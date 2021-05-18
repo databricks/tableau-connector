@@ -18,8 +18,8 @@ limitations under the License.
 (function dsbuilder(attr) {
 	var params = {};
 
-  var vendorDefined = {	
-		attributeHttpPath: "v-http-path"	
+	var vendorDefined = {
+		attributeHttpPath: "v-http-path"
 	}
 
 	// The Databricks cluster ODBC endpoint
