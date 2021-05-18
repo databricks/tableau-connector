@@ -23,9 +23,7 @@ limitations under the License. -->
     </field>
     <!-- /Endpoint -->
 
-    <field name="v-http-path" label="@string/http_path_prompt/" category="endpoint" value-type="string">	
-        <!-- validation-rule reg-exp="^[0-9A-Za-z-_/]*$" /-->
-    </field>
+    <field name="v-http-path" label="@string/http_path_prompt/" category="endpoint" value-type="string" />
 
     <!-- Authentication -->
     <field name="authentication" label="@string/authentication_prompt/" category="authentication" value-type="selection" default-value="oauth">
