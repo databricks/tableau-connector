@@ -110,6 +110,12 @@ limitations under the License.
         <argument type='datetime' />
     </function>
 
+    <function group='string' name='CONTAINS' return-type='bool'>
+        <formula>(INSTR(%1,%2) &gt; 0)</formula>
+        <argument type='str' />
+        <argument type='str' />
+    </function>
+
     <date-function name='DATENAME' return-type='str'>
         <formula>
             FORMAT_NUMBER(FLOOR((14 + DATEDIFF(%2, TRUNC(%2,'YY')) + DATEDIFF(TRUNC(%2,'YY'), NEXT_DAY(TRUNC(%2,'YY'), 'MO')))/7), 0)
@@ -149,13 +155,6 @@ limitations under the License.
         <argument type='localstr' />
         <argument type='date' />
     </date-function>
-
-    <function group='string' name='CONTAINS' return-type='bool'>
-        <formula>(INSTR(%1,%2) &gt; 0)</formula>
-        <argument type='str' />
-        <argument type='str' />
-    </function>
-
 </function-map>
 
 <sql-format>
