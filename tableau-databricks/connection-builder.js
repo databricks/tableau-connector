@@ -67,10 +67,10 @@ limitations under the License.
 	// Tell the ODBC driver that it is Tableau connecting.
 	params["UserAgentEntry"] = "Tableau";
 
-  // Prevent the driver from turning server-side properties to lower-case
+	// Prevent the driver from turning server-side properties to lower-case
 	params["LCaseSspKeyName"] = "0";
 	
-  // Prevent the driver to set properties by executing statements
+	// Prevent the driver to set properties by executing statements
 	params["ApplySSPWithQueries"] = "0";
 
 	// Load ODBC connection string extras
