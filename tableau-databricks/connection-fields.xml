@@ -34,11 +34,15 @@ limitations under the License. -->
         </selection-group>
     </field>
 
-    <field name="instanceurl" label="@string/authentication_oauth_endpoint_prompt/" category="authentication" value-type="string" default-value="Enter address e.g. https://[Server Hostname]/oidc">
+    <field name="instanceurl" label="@string/authentication_oauth_endpoint_prompt/" category="authentication" value-type="string">
         <conditions>
           <condition field="authentication" value="oauth" />
         </conditions>
-        <validation-rule reg-exp="^https:\/\/([0-9A-Za-z-]+\.)+([0-9A-Za-z-]+)\/oidc$" />
+        <!-- limit to well-known domains:
+          https://*.microsoftonline.(com|us|de|cn) (public, govcloud, germany, china),
+          https://*.chinacloudapi.cn (China)
+          https://*/oidc (Databricks redirector) -->
+        <validation-rule reg-exp="^https:\/\/([a-zA-Z0-9-]+\.)+((microsoftonline\.(com|us|cn|de))|chinacloudapi\.cn|[a-zA-Z]+\/oidc)" />
     </field>
 
     <field name="username" label="@string/username_prompt/" category="authentication" value-type="string">

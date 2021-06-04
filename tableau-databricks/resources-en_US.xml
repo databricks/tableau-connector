@@ -24,7 +24,7 @@ limitations under the License. -->
   <string name="authentication_label_token">Personal Access Token</string>
   <string name="authentication_label_user_pass">Username / Password</string>
   <string name="authentication_oauth_advanced_options_prompt">Advanced configuration for OAuth</string>
-  <string name="authentication_oauth_endpoint_prompt">OAuth Endpoint</string>
+  <string name="authentication_oauth_endpoint_prompt">OAuth Endpoint e.g. https://[Server Hostname]/oidc</string>
   
   <string name="username_prompt">Username</string>
   <string name="password_prompt">Password</string>
