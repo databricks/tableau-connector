@@ -16,7 +16,9 @@ See the License for the specific language governing permissions and
 limitations under the License. -->
 
 <connection-metadata>
-    <database enabled='true' label="@string/metadata_catalog_prompt/" />
+    <database enabled='true' label="@string/http_path_prompt/" >
+        <field optional='false' />
+    </database>
     <schema enabled='true' label="@string/metadata_database_prompt/" />
     <table enabled='true' label="@string/metadata_table_prompt/" />
 </connection-metadata>
