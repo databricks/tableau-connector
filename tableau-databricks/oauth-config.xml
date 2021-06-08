@@ -11,6 +11,7 @@
 
     <authUri>/oauth2/v2.0/authorize</authUri>
     <tokenUri>/oauth2/v2.0/token</tokenUri>
+    <instanceUrlValidationRegex>^https:\/\/([a-zA-Z0-9-]+\.)+((microsoftonline\.(com|us|cn|de))|chinacloudapi\.cn|[a-zA-Z]+\/oidc)\/(.*)</instanceUrlValidationRegex>
 
     <scopes>openid</scopes>
     <scopes>email</scopes>
