@@ -30,6 +30,12 @@ limitations under the License.
 	params["SPARKSERVERTYPE"] = "3";
 	params["SSL"] = "1";
 
+	// attributeDatabase contains the catalog name.
+	if (attr[connectionHelper.attributeDatabase] &&
+	    attr[connectionHelper.attributeDatabase] !== "SPARK") {
+		params["CATALOG"] = attr[connectionHelper.attributeDatabase];
+	}
+
 	var authenticationMode = attr[connectionHelper.attributeAuthentication];
 	switch (authenticationMode) {
 		case "auth-user-pass":
