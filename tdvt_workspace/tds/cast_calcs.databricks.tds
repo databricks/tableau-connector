@@ -5,7 +5,7 @@
   <connection class='federated'>
     <named-connections>
       <named-connection caption='<SHARD_NAME>.databricks.com' name='leaf'>
-          <connection authentication='Username and Password' authentication-type='' class='databricks' dbname='<HTTP_PATH>' one-time-sql='' schema='tableau_tdvt' server='<SHARD_NAME>.databricks.com' username='token' password='<YOUR_TOKEN>'>
+          <connection authentication='Username and Password' authentication-type='' class='databricks' v-http-path='<HTTP_PATH>' one-time-sql='' schema='tableau_tdvt' server='<SHARD_NAME>.databricks.com' username='token' password='<YOUR_TOKEN>'>
           <connection-customization class='databricks' enabled='false' version='18.1'>
             <vendor name='databricks' />
             <driver name='databricks' />
