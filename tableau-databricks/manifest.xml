@@ -146,10 +146,12 @@ limitations under the License.
         <customization name='CAP_ODBC_METADATA_SUPPRESS_EXECUTED_QUERY' value='yes' />
         <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLCOLUMNS_API' value='no' />
         <customization name='CAP_ODBC_METADATA_SUPPRESS_SELECT_STAR' value='yes' />
-        <customization name='CAP_ODBC_SUPPRESS_CATALOG_NAME' value='yes'/>
+        <customization name='CAP_ODBC_SUPPRESS_CATALOG_NAME' value='no'/>
         <customization name='CAP_QUERY_TOP_0_METADATA' value='no' />
         <customization name='CAP_QUERY_WHERE_FALSE_METADATA' value='no' />
         <customization name='CAP_SUPPRESS_ENUMERATE_TABLES_VIA_SQL' value='yes' />
+        <customization name='CAP_SUPPRESS_ENUMERATE_SCHEMAS_VIA_SQL' value='yes' />
+        <customization name='CAP_ODBC_SUPPRESS_ENUMERATE_SCHEMA_WITHOUT_CATALOG' value='yes' />
     </customizations>
 </connection-customization>
 <connection-fields file='connection-fields.xml'/>

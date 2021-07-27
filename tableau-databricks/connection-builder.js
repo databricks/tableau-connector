@@ -18,13 +18,24 @@ limitations under the License.
 (function dsbuilder(attr) {
 	var params = {};
 
+ 	var vendorDefined = {
+		attributeHttpPath: "v-http-path"
+	}
+
 	// The Databricks cluster ODBC endpoint
 	params["HOST"] = attr[connectionHelper.attributeServer];
 	params["PORT"] = "443";
-	params["HTTPPATH"] = attr[connectionHelper.attributeDatabase];
+	params["HTTPPATH"] = attr[vendorDefined.attributeHttpPath];
 	params["THRIFTTRANSPORT"] = "2";
 	params["SPARKSERVERTYPE"] = "3";
 	params["SSL"] = "1";
+
+	// attributeDatabase contains the catalog name.
+	if (attr[connectionHelper.attributeDatabase] &&
+	    attr[connectionHelper.attributeDatabase] !== "SPARK") {
+		params["Catalog"] = attr[connectionHelper.attributeDatabase];
+		params["SSP_databricks.catalog"] = attr[connectionHelper.attributeDatabase];
+	}
 
 	var authenticationMode = attr[connectionHelper.attributeAuthentication];
 	switch (authenticationMode) {
