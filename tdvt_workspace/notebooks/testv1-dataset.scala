@@ -47,7 +47,15 @@
 
 // COMMAND ----------
 
-spark.read.option("header", "true").option("escape", "\"").csv("/FileStore/tables/Calcs_headers.csv").write.mode("append").saveAsTable("Calcs")
+spark.read
+  .option("header", "true")
+  .option("escape", "\"")
+  .schema(sql("SELECT * FROM calcs LIMIT 0").schema)
+  .csv("/FileStore/tables/Calcs_headers.csv")
+  .write
+  .mode("append")
+  .format("parquet")
+  .saveAsTable("Calcs")
 
 // COMMAND ----------
 
@@ -123,13 +131,16 @@ sql("select * from calcs")
 // MAGIC ) using parquet;
 
 // COMMAND ----------
-
-spark.read.option("header", "false").option("escape", "\"").csv("/FileStore/tables/Staples_utf8.csv").createOrReplaceTempView("Staples_input")
-
-// COMMAND ----------
-
-// MAGIC %sql
-// MAGIC INSERT INTO Staples SELECT * FROM Staples_input
+spark.read
+  .option("header", "false")
+  .option("escape", "\"")
+  .option("encoding", "UTF-8")
+  .schema(sql("SELECT * FROM staples LIMIT 0").schema)
+  .csv("/FileStore/tables/Staples_utf8.csv")
+  .write
+  .mode("append")
+  .format("parquet")
+  .saveAsTable("staples")
 
 // COMMAND ----------
 
