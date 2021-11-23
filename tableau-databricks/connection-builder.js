@@ -80,8 +80,8 @@ limitations under the License.
 	// Prevent the driver to set properties by executing statements
 	params["ApplySSPWithQueries"] = "0";
 
-  // Insert user agent
-  params["UserAgentEntry"] = connectionHelper.GetProductName() + "_" + connectionHelper.GetProductVersion();
+	// Insert user agent
+	params["UserAgentEntry"] = connectionHelper.GetProductName() + "_" + connectionHelper.GetProductVersion();
 
 	// Load ODBC connection string extras
 	var odbcConnectStringExtrasMap = {};
