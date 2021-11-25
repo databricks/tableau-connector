@@ -72,7 +72,7 @@ limitations under the License.
 	params["AsyncExecPollInterval"] = "1";
 
 	// Tell the ODBC driver that it is Tableau connecting.
-	params["UserAgentEntry"] = "Tableau";
+	params["UserAgentEntry"] = connectionHelper.GetProductName() + "_" + connectionHelper.GetProductVersion();
 
 	// Prevent the driver from turning server-side properties to lower-case
 	params["LCaseSspKeyName"] = "0";
