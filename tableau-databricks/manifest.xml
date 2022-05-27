@@ -152,7 +152,7 @@ limitations under the License.
         <customization name='CAP_SUPPRESS_ENUMERATE_TABLES_VIA_SQL' value='yes' />
         <customization name='CAP_SUPPRESS_ENUMERATE_SCHEMAS_VIA_SQL' value='yes' />
         <customization name='CAP_ODBC_SUPPRESS_ENUMERATE_SCHEMA_WITHOUT_CATALOG' value='yes' />
-	<customization name='CAP_ODBC_SUPPRESS_INFO_SCHEMA_TABLES' value='yes' />
+	<customization name='CAP_ODBC_SUPPRESS_INFO_SCHEMA_SCHEMAS' value='yes' />
     </customizations>
 </connection-customization>
 <connection-fields file='connection-fields.xml'/>
