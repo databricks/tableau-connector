@@ -34,7 +34,6 @@ limitations under the License.
 	if (attr[connectionHelper.attributeDatabase] &&
 	    attr[connectionHelper.attributeDatabase] !== "SPARK") {
 		params["Catalog"] = attr[connectionHelper.attributeDatabase];
-		params["SSP_databricks.catalog"] = attr[connectionHelper.attributeDatabase];
 	}
 
 	var authenticationMode = attr[connectionHelper.attributeAuthentication];
