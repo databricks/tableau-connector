@@ -36,7 +36,9 @@ To test a custom connector, follow the steps below:
 <connector-plugin class='databricks' superclass='spark' plugin-version='0.1' name='Databricks' version='18.1'> <vendor-information> <company name="Company Name"/> <support-link url = "https://example.com"/> </vendor-information> ... </connector-plugin>.
 ```
 
-4. Start Tableau with the connector plugin path:
+4. Comment the `UserAgentEntry` line in `connection-builder.js`.
+
+5. Start Tableau with the connector plugin path:
  - MacOS: `/Applications/Tableau\ Desktop\<version>.app/Contents/MacOS/Tableau -DConnectPluginsPath=$PATH/tableau-connector/connectors -DLogLevel=Debug`
  - `C:\Program Files\Tableau\Tableau <version>\bin\tableau.exe" "-DConnectPluginsPath=$PATH\tableau-connector\connectors` -DLogLevel=Debug`
 
