@@ -30,6 +30,7 @@ To test a custom connector, follow the steps below:
 
 2. (Optional) Change the name of the connector in the `manifest.xml` file. This is not strictly necessary, but the name field uses a string constant which remains unresolved when loaded as a plugin. Therefore, the display name will be something similar to `@string/databricks`.
 
+
 3. Include the vendor information in the `manifest.xml`. The fact that the connector plugin doesn’t include vendor information is intentional, so this change shouldn’t be pushed to the repo. Tableau incorporated connectors have a slightly different integration than most custom connectors. However, when loading it using the command line argument you will need to add it to pass the `XSD` validation for the manifest file when Tableau starts up.
 ```
 <connector-plugin class='databricks' superclass='spark' plugin-version='0.1' name='Databricks' version='18.1'> <vendor-information> <company name="Company Name"/> <support-link url = "https://example.com"/> </vendor-information> ... </connector-plugin>.
