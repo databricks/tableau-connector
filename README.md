@@ -26,7 +26,7 @@ To test a custom connector, follow the steps below:
  
 1. Remove the embedded connector file from the connector directory:
  - MacOS: `/Applications/Tableau Desktop <version>.app/Contents/Frameworks/connectors/libdatabricks.dylib`
- - Windows: `C:\Program Files\Tableau\Tableau 2020.2\bin\connectors\databricks.ddl`
+ - Windows: `C:\Program Files\Tableau\Tableau 2020.2\bin\connectors\databricks.dll`
 
 2. (Optional) Change the name of the connector in the `manifest.xml` file. This is not strictly necessary, but the name field uses a string constant which remains unresolved when loaded as a plugin. Therefore, the display name will be something similar to `@string/databricks`.
 
