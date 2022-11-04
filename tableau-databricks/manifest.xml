@@ -56,8 +56,8 @@ limitations under the License.
         <customization name='CAP_ODBC_FETCH_CONTINUE_ON_ERROR' value='no' />
         <customization name='CAP_ODBC_FORCE_SINGLE_ROW_BINDING' value='no' />
         <customization name='CAP_ODBC_METADATA_STRING_LENGTH_UNKNOWN' value='no' />
-        <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLFOREIGNKEYS_API' value='yes' />
-        <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLPRIMARYKEYS_API' value='yes' />
+        <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLFOREIGNKEYS_API' value='no' />
+        <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLPRIMARYKEYS_API' value='no' />
         <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLSTATISTICS_API' value='yes' />
         <customization name='CAP_ODBC_REBIND_SKIP_UNBIND' value='no' />
         <customization name='CAP_ODBC_TRIM_VARCHAR_PADDING' value='no' />
