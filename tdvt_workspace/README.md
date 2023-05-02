@@ -3,7 +3,7 @@ Instructions for running TDVT testing on the Tableau Databricks connector:
 1. Install TDVT on your Windows machine using the guide from https://tableau.github.io/connector-plugin-sdk/docs/tdvt. The resulting tdvt_workspace directory should contain the following subdirectories: config, plugins, and tds.
 
 2. Prepare the testing tables.
-Use the tables in dogfood which is under Catalog `tableau` Schema `tableau_tdvt`
+Use the tables in dogfood(https://e2-dogfood.staging.cloud.databricks.com/sql/explore/data/tableau/tableau_tdvt?o=6051921418418893) which is under Catalog `tableau` Schema `tableau_tdvt`
 
 3. Update the tds files
 - Replace in the `Staples.databricks.tds` and `cast_cals.databricks.tds` files the connection parameters: 
