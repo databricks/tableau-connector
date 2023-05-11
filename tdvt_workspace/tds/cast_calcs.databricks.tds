@@ -1,28 +1,38 @@
 <?xml version='1.0' encoding='utf-8' ?>
 
-<!-- build 20201.20.0219.0753                               -->
-<datasource formatted-name='federated.02a0zba0flpxhi1g1v60c0zfc2d9' inline='true' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+<!-- build 20231.23.0310.1044                               -->
+<datasource formatted-name='cast_calcs.databricks' inline='true' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.DatabricksCatalog.true...DatabricksCatalog />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+  </document-format-change-manifest>
   <connection class='federated'>
     <named-connections>
       <named-connection caption='<SHARD_NAME>.databricks.com' name='leaf'>
-          <connection authentication='Username and Password' authentication-type='' class='databricks' v-http-path='<HTTP_PATH>' one-time-sql='' schema='tableau_tdvt' server='<SHARD_NAME>.databricks.com' username='token' password='<YOUR_TOKEN>'>
+        <connection _.fcp.DatabricksCatalog.false...dbname='<HTTP_PATH>' _.fcp.DatabricksCatalog.true...dbname='eric_tableau_test' _.fcp.DatabricksCatalog.true...v-http-path='<HTTP_PATH>' authentication='auth-pass' authentication-type='' class='databricks' odbc-connect-string-extras='' one-time-sql='' schema='default' server='<SHARD_NAME>.databricks.com' username='' password='<YOUR TOKEN>'>
           <connection-customization class='databricks' enabled='false' version='18.1'>
             <vendor name='databricks' />
             <driver name='databricks' />
             <customizations>
               <customization name='CAP_AUTH_DB_IMPERSONATE' value='no' />
               <customization name='CAP_AUTH_KERBEROS_IMPERSONATE' value='yes' />
+              <customization name='CAP_COLLECT_TABLE_STATISTICS' value='no' />
               <customization name='CAP_CONNECT_STORED_PROCEDURE' value='no' />
               <customization name='CAP_CREATE_TEMP_TABLES' value='no' />
               <customization name='CAP_DATASERVER_MAGIC_NUMBER' value='no' />
               <customization name='CAP_DEFERS_CONNECTION_VERIFICATION' value='no' />
               <customization name='CAP_DISABLE_EXTRACT_TABLE_INDEXING' value='no' />
+              <customization name='CAP_EQUALITY_JOINS_ONLY' value='no' />
               <customization name='CAP_EQUIJOINS_ONLY' value='no' />
               <customization name='CAP_FAST_METADATA' value='no' />
+              <customization name='CAP_FORCE_COUNT_FOR_NUMBEROFRECORDS' value='no' />
               <customization name='CAP_GREENPLUM_TRUST_METADATA_CONTAINSNULL' value='no' />
               <customization name='CAP_HIVE_FIX_METADATA_NAMES' value='no' />
               <customization name='CAP_INDEX_TEMP_TABLES' value='no' />
               <customization name='CAP_INSERT_TEMP_EXEC_STORED_PROCEDURE' value='no' />
+              <customization name='CAP_JDBC_QUERY_USE_PREPARE_PARAMETER_MARKER' value='no' />
               <customization name='CAP_LOCAL_ALIASES_CASE_INSENSITIVE' value='no' />
               <customization name='CAP_ODBC_ALWAYS_THROW_CONNECT_ERRORS' value='no' />
               <customization name='CAP_ODBC_BIND_FORCE_DATETIME_AS_CHAR' value='no' />
@@ -45,9 +55,9 @@
               <customization name='CAP_ODBC_FETCH_CONTINUE_ON_ERROR' value='no' />
               <customization name='CAP_ODBC_FORCE_SINGLE_ROW_BINDING' value='no' />
               <customization name='CAP_ODBC_METADATA_STRING_LENGTH_UNKNOWN' value='no' />
-              <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLCOLUMNS_API' value='yes' />
-              <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLFOREIGNKEYS_API' value='yes' />
-              <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLPRIMARYKEYS_API' value='yes' />
+              <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLCOLUMNS_API' value='no' />
+              <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLFOREIGNKEYS_API' value='no' />
+              <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLPRIMARYKEYS_API' value='no' />
               <customization name='CAP_ODBC_METADATA_SUPPRESS_SQLSTATISTICS_API' value='yes' />
               <customization name='CAP_ODBC_QUERY_USE_PREPARE_PARAMETER_MARKER' value='no' />
               <customization name='CAP_ODBC_REBIND_SKIP_UNBIND' value='no' />
@@ -57,6 +67,7 @@
               <customization name='CAP_ODBC_UNBIND_EACH' value='yes' />
               <customization name='CAP_ODBC_USE_NATIVE_PROTOCOL' value='yes' />
               <customization name='CAP_PADDED_SEMANTICS_NCHAR_NVARCHAR' value='no' />
+              <customization name='CAP_PERSIST_SQL_RELATION_ON_LEAF_CONNECTION' value='no' />
               <customization name='CAP_QUERY_ALLOW_JOIN_REORDER' value='yes' />
               <customization name='CAP_QUERY_ALLOW_PARTIAL_AGGREGATION' value='yes' />
               <customization name='CAP_QUERY_ALWAYS_USE_AQ_CACHE' value='no' />
@@ -66,40 +77,50 @@
               <customization name='CAP_QUERY_BLENDING_REMOTE_MAPPING_TABLES' value='yes' />
               <customization name='CAP_QUERY_BOOLEXPR_TO_INTEXPR' value='no' />
               <customization name='CAP_QUERY_BOOL_IDENTIFIER_TO_LOGICAL' value='no' />
+              <customization name='CAP_QUERY_CAST_MONEY_AS_NUMERIC' value='no' />
               <customization name='CAP_QUERY_EMPTY_DOMAIN_TOP' value='no' />
               <customization name='CAP_QUERY_FORCE_AGGREGATE_MEASURES' value='no' />
               <customization name='CAP_QUERY_GROUP_BY_ALIAS' value='yes' />
               <customization name='CAP_QUERY_GROUP_BY_DEGREE' value='yes' />
               <customization name='CAP_QUERY_HAVING_REQUIRES_GROUP_BY' value='yes' />
               <customization name='CAP_QUERY_HAVING_UNSUPPORTED' value='no' />
+              <customization name='CAP_QUERY_IGNORE_HINT_CHECK_NOT_NULL' value='no' />
+              <customization name='CAP_QUERY_IGNORE_HINT_MAKE_DOMAIN_PREDICATE' value='no' />
               <customization name='CAP_QUERY_JOIN_ACROSS_SCHEMAS' value='yes' />
               <customization name='CAP_QUERY_JOIN_ASSUME_CONSTRAINED' value='no' />
               <customization name='CAP_QUERY_JOIN_PUSH_DOWN_CONDITION_EXPRESSIONS' value='no' />
               <customization name='CAP_QUERY_JOIN_REQUIRES_SCOPE' value='no' />
               <customization name='CAP_QUERY_JOIN_REQUIRES_SUBQUERY' value='no' />
+              <customization name='CAP_QUERY_MINMAX_FORCE_GROUPBYS' value='no' />
               <customization name='CAP_QUERY_NULL_REQUIRES_CAST' value='yes' />
+              <customization name='CAP_QUERY_OUTER_JOIN_CONDITION_NO_TRIVIAL' value='no' />
               <customization name='CAP_QUERY_RECOMPILE_FAILED_QUERY' value='no' />
               <customization name='CAP_QUERY_SELECT_ALIASES_SORTED' value='no' />
               <customization name='CAP_QUERY_SORT_BY' value='yes' />
               <customization name='CAP_QUERY_SORT_BY_DEGREE' value='no' />
               <customization name='CAP_QUERY_SUBQUERIES' value='yes' />
               <customization name='CAP_QUERY_SUBQUERIES_WITH_TOP' value='yes' />
+              <customization name='CAP_QUERY_SUBQUERIES_WITH_TOP_ALTERNATIVE' value='no' />
               <customization name='CAP_QUERY_SUBQUERY_QUERY_CONTEXT' value='yes' />
               <customization name='CAP_QUERY_SUPPORTS_LODJOINS' value='yes' />
               <customization name='CAP_QUERY_SUPPORT_ANALYTIC_FUNCTIONS' value='no' />
               <customization name='CAP_QUERY_SUPPORT_EMPTY_GROUPBY' value='no' />
               <customization name='CAP_QUERY_SUPPRESS_CHECK_DOMAIN_LITERALS_THRESHOLD' value='no' />
               <customization name='CAP_QUERY_SUPPRESS_NULL_CHECK_QUERIES' value='no' />
+              <customization name='CAP_QUERY_TAGS_IN_SQL_TEXT' value='no' />
               <customization name='CAP_QUERY_TIME_REQUIRES_CAST' value='no' />
               <customization name='CAP_QUERY_TOPSTYLE_LIMIT' value='no' />
               <customization name='CAP_QUERY_TOPSTYLE_ROWNUM' value='no' />
               <customization name='CAP_QUERY_TOPSTYLE_TOP' value='no' />
               <customization name='CAP_QUERY_TOP_0_METADATA' value='no' />
               <customization name='CAP_QUERY_TOP_N' value='yes' />
+              <customization name='CAP_QUERY_USE_DOMAIN_EXCEPT_OPTIMIZATION' value='yes' />
               <customization name='CAP_QUERY_USE_DOMAIN_RANGES_OPTIMIZATION' value='yes' />
+              <customization name='CAP_QUERY_USE_DOMAIN_RANGES_OPTIMIZATION_STRINGS' value='no' />
               <customization name='CAP_QUERY_USE_QUERY_FUSION' value='yes' />
               <customization name='CAP_QUERY_WHERE_FALSE_METADATA' value='no' />
               <customization name='CAP_RELDATEFILT_CASTTODATE' value='no' />
+              <customization name='CAP_RENAME_TABLE_USE_LEAF_CONNECTION_DIALECT' value='no' />
               <customization name='CAP_SELECT_INTO' value='no' />
               <customization name='CAP_SELECT_TOP_INTO' value='no' />
               <customization name='CAP_STORED_PROCEDURE_PREFER_TEMP_TABLE' value='no' />
@@ -108,6 +129,8 @@
               <customization name='CAP_STORED_PROCEDURE_TEMP_TABLE_FROM_NEW_PROTOCOL' value='no' />
               <customization name='CAP_SUPPRESS_CONNECTION_POOLING' value='yes' />
               <customization name='CAP_SUPPRESS_DISCOVERY_QUERIES' value='no' />
+              <customization name='CAP_SUPPRESS_ENUMERATE_SCHEMAS_VIA_SQL' value='yes' />
+              <customization name='CAP_SUPPRESS_ENUMERATE_TABLES_VIA_SQL' value='yes' />
               <customization name='CAP_SUPPRESS_GET_SERVER_TIME' value='yes' />
               <customization name='CAP_SUPPRESS_QUICK_FILTER_ACCELERATION_VIEWS' value='no' />
               <customization name='CAP_SUPPRESS_TEMP_TABLE_CHECKS' value='no' />
@@ -116,7 +139,8 @@
         </connection>
       </named-connection>
     </named-connections>
-    <relation connection='leaf' name='calcs' table='[tableau_tdvt].[calcs]' type='table' />
+    <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='leaf' name='calcs' table='[default].[calcs]' type='table' />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='leaf' name='calcs' table='[default].[calcs]' type='table' />
     <metadata-records>
       <metadata-record class='column'>
         <remote-name>key</remote-name>
@@ -135,6 +159,7 @@
           <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
           <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>num0</remote-name>
@@ -151,6 +176,7 @@
           <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DOUBLE&quot;</attribute>
           <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>num1</remote-name>
@@ -167,6 +193,7 @@
           <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DOUBLE&quot;</attribute>
           <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>num2</remote-name>
@@ -183,6 +210,7 @@
           <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DOUBLE&quot;</attribute>
           <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>num3</remote-name>
@@ -199,6 +227,7 @@
           <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DOUBLE&quot;</attribute>
           <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>num4</remote-name>
@@ -215,6 +244,7 @@
           <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DOUBLE&quot;</attribute>
           <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>str0</remote-name>
@@ -233,6 +263,7 @@
           <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
           <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>str1</remote-name>
@@ -251,6 +282,7 @@
           <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
           <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>str2</remote-name>
@@ -269,6 +301,7 @@
           <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
           <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>str3</remote-name>
@@ -287,130 +320,143 @@
           <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
           <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>int0</remote-name>
-        <remote-type>3</remote-type>
+        <remote-type>20</remote-type>
         <local-name>[int0]</local-name>
         <parent-name>[calcs]</parent-name>
         <remote-alias>int0</remote-alias>
         <ordinal>11</ordinal>
         <local-type>integer</local-type>
         <aggregation>Sum</aggregation>
-        <precision>10</precision>
+        <precision>19</precision>
         <contains-null>true</contains-null>
         <attributes>
-          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
-          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIGINT&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SBIGINT&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>int1</remote-name>
-        <remote-type>3</remote-type>
+        <remote-type>20</remote-type>
         <local-name>[int1]</local-name>
         <parent-name>[calcs]</parent-name>
         <remote-alias>int1</remote-alias>
         <ordinal>12</ordinal>
         <local-type>integer</local-type>
         <aggregation>Sum</aggregation>
-        <precision>10</precision>
+        <precision>19</precision>
         <contains-null>true</contains-null>
         <attributes>
-          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
-          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIGINT&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SBIGINT&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>int2</remote-name>
-        <remote-type>3</remote-type>
+        <remote-type>20</remote-type>
         <local-name>[int2]</local-name>
         <parent-name>[calcs]</parent-name>
         <remote-alias>int2</remote-alias>
         <ordinal>13</ordinal>
         <local-type>integer</local-type>
         <aggregation>Sum</aggregation>
-        <precision>10</precision>
+        <precision>19</precision>
         <contains-null>true</contains-null>
         <attributes>
-          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
-          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIGINT&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SBIGINT&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>int3</remote-name>
-        <remote-type>3</remote-type>
+        <remote-type>20</remote-type>
         <local-name>[int3]</local-name>
         <parent-name>[calcs]</parent-name>
         <remote-alias>int3</remote-alias>
         <ordinal>14</ordinal>
         <local-type>integer</local-type>
         <aggregation>Sum</aggregation>
-        <precision>10</precision>
+        <precision>19</precision>
         <contains-null>true</contains-null>
         <attributes>
-          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
-          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIGINT&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SBIGINT&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>bool0</remote-name>
-        <remote-type>11</remote-type>
+        <remote-type>20</remote-type>
         <local-name>[bool0]</local-name>
         <parent-name>[calcs]</parent-name>
         <remote-alias>bool0</remote-alias>
         <ordinal>15</ordinal>
-        <local-type>boolean</local-type>
-        <aggregation>Count</aggregation>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>19</precision>
         <contains-null>true</contains-null>
         <attributes>
-          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
-          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIGINT&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SBIGINT&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>bool1</remote-name>
-        <remote-type>11</remote-type>
+        <remote-type>20</remote-type>
         <local-name>[bool1]</local-name>
         <parent-name>[calcs]</parent-name>
         <remote-alias>bool1</remote-alias>
         <ordinal>16</ordinal>
-        <local-type>boolean</local-type>
-        <aggregation>Count</aggregation>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>19</precision>
         <contains-null>true</contains-null>
         <attributes>
-          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
-          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIGINT&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SBIGINT&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>bool2</remote-name>
-        <remote-type>11</remote-type>
+        <remote-type>20</remote-type>
         <local-name>[bool2]</local-name>
         <parent-name>[calcs]</parent-name>
         <remote-alias>bool2</remote-alias>
         <ordinal>17</ordinal>
-        <local-type>boolean</local-type>
-        <aggregation>Count</aggregation>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>19</precision>
         <contains-null>true</contains-null>
         <attributes>
-          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
-          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIGINT&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SBIGINT&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>bool3</remote-name>
-        <remote-type>11</remote-type>
+        <remote-type>20</remote-type>
         <local-name>[bool3]</local-name>
         <parent-name>[calcs]</parent-name>
         <remote-alias>bool3</remote-alias>
         <ordinal>18</ordinal>
-        <local-type>boolean</local-type>
-        <aggregation>Count</aggregation>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>19</precision>
         <contains-null>true</contains-null>
         <attributes>
-          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
-          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIGINT&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SBIGINT&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>date0</remote-name>
@@ -426,6 +472,7 @@
           <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_DATE&quot;</attribute>
           <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_DATE&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>date1</remote-name>
@@ -441,6 +488,7 @@
           <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_DATE&quot;</attribute>
           <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_DATE&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>date2</remote-name>
@@ -456,6 +504,7 @@
           <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_DATE&quot;</attribute>
           <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_DATE&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>date3</remote-name>
@@ -471,6 +520,7 @@
           <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_DATE&quot;</attribute>
           <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_DATE&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>time0</remote-name>
@@ -486,6 +536,7 @@
           <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
           <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>time1</remote-name>
@@ -501,6 +552,7 @@
           <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
           <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>datetime0</remote-name>
@@ -516,6 +568,7 @@
           <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
           <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>datetime1</remote-name>
@@ -534,6 +587,7 @@
           <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
           <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
       <metadata-record class='column'>
         <remote-name>zzz</remote-name>
@@ -552,17 +606,16 @@
           <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
           <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
         </attributes>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
       </metadata-record>
     </metadata-records>
   </connection>
   <aliases enabled='yes' />
-  <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
-    <calculation class='tableau' formula='1' />
-  </column>
-  <column caption='Bool0' datatype='boolean' name='[bool0]' role='dimension' type='nominal' />
-  <column caption='Bool1' datatype='boolean' name='[bool1]' role='dimension' type='nominal' />
-  <column caption='Bool2' datatype='boolean' name='[bool2]' role='dimension' type='nominal' />
-  <column caption='Bool3' datatype='boolean' name='[bool3]' role='dimension' type='nominal' />
+  <_.fcp.ObjectModelTableType.true...column caption='calcs' datatype='table' name='[__tableau_internal_object_id__].[calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436]' role='measure' type='quantitative' />
+  <column caption='Bool0' datatype='integer' name='[bool0]' role='measure' type='quantitative' />
+  <column caption='Bool1' datatype='integer' name='[bool1]' role='measure' type='quantitative' />
+  <column caption='Bool2' datatype='integer' name='[bool2]' role='measure' type='quantitative' />
+  <column caption='Bool3' datatype='integer' name='[bool3]' role='measure' type='quantitative' />
   <column caption='Date0' datatype='date' name='[date0]' role='dimension' type='ordinal' />
   <column caption='Date1' datatype='date' name='[date1]' role='dimension' type='ordinal' />
   <column caption='Date2' datatype='date' name='[date2]' role='dimension' type='ordinal' />
@@ -586,8 +639,17 @@
   <column caption='Time0' datatype='datetime' name='[time0]' role='dimension' type='ordinal' />
   <column caption='Time1' datatype='datetime' name='[time1]' role='dimension' type='ordinal' />
   <column caption='Zzz' datatype='string' name='[zzz]' role='dimension' type='nominal' />
-  <layout dim-ordering='alphabetic' dim-percentage='0.59115' measure-ordering='alphabetic' measure-percentage='0.40885' show-structure='true' />
+  <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
   <semantic-values>
     <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
   </semantic-values>
+  <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    <objects>
+      <object caption='calcs' id='calcs (default.calcs)_B6F0989086684D73A630B85D8F1E6436'>
+        <properties context=''>
+          <relation connection='leaf' name='calcs' table='[default].[calcs]' type='table' />
+        </properties>
+      </object>
+    </objects>
+  </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
 </datasource>

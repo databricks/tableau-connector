@@ -13,8 +13,7 @@ from the `Data -> Add Data` menu in your Databricks environment.
 3. Update the tds files
 - Replace in the `Staples.databricks.tds` and `cast_cals.databricks.tds` files the connection parameters: 
    (a) server='<SHARD_NAME>'
-   (b) v-http-path='<HTTP_PATH>' (see JDBC/ODBC cluster tab)
-   (b) username='token' (fixed) 
+   (b) _.fcp.DatabricksCatalog.true...v-http-path | _.fcp.DatabricksCatalog.false...dbname   = '<HTTP_PATH>' (see JDBC/ODBC cluster tab)
    (c) password='<your_token>' (generated)
 
 4. Inside the config directory there is a `databricks.ini` file in which you can choose which tests to run and set the path to the connector files.
