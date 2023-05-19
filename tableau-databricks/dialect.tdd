@@ -382,23 +382,6 @@ limitations under the License.
       <argument type='localstr' />
     </date-function>
 
-<!--
-    <date-function name='DATEADD' return-type='datetime'>
-      <formula part='year'>CAST(CONCAT(YEAR(%3)+%2, SUBSTR(CAST(%3 AS TIMESTAMP), 5)) AS TIMESTAMP)</formula>
-      <formula part='quarter'>CAST(CONCAT(ADD_MONTHS(%3,(%2 * 3)),SUBSTR(CAST(%3 AS TIMESTAMP),11)) AS TIMESTAMP)</formula>
-      <formula part='month'>CAST(CONCAT(ADD_MONTHS(%3,%2),SUBSTR(CAST(%3 AS TIMESTAMP),11)) AS TIMESTAMP)</formula>
-      <formula part='dayofyear'>CAST(CONCAT(DATE_ADD(CAST(%3 AS TIMESTAMP), CAST(%2 AS INT)), SUBSTR(CAST(CAST(%3 AS TIMESTAMP) AS TIMESTAMP), 11)) AS TIMESTAMP)</formula>
-      <formula part='day'>DATE_ADD(%3, %2)</formula>
-      <formula part='weekday'>DATE_ADD(%3, %2)</formula>
-      <formula part='week'>CAST(CONCAT(DATE_ADD(CAST(%3 AS TIMESTAMP), CAST(7 * %2 AS INT)), SUBSTR(CAST(CAST(%3 AS TIMESTAMP) AS TIMESTAMP), 11)) AS TIMESTAMP)</formula>
-      <formula part='hour'>CAST(FROM_UNIXTIME(UNIX_TIMESTAMP(%3) + %2*3600) AS TIMESTAMP)</formula>
-      <formula part='minute'>CAST(FROM_UNIXTIME(UNIX_TIMESTAMP(%3) + %2*60) AS TIMESTAMP)</formula>
-      <formula part='second'>CAST(FROM_UNIXTIME(UNIX_TIMESTAMP(%3) + %2) AS TIMESTAMP)</formula>
-      <argument type='localstr' />
-      <argument type='int' />
-      <argument type='datetime' />
-    </date-function>
--->
     <date-function name='DATEADD' return-type='datetime'>
       <formula part='year'>DATEADD(YEAR, %2, %3)</formula>
       <formula part='quarter'>DATEADD(QUARTER, %2, %3)</formula>
