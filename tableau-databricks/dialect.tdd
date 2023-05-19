@@ -58,17 +58,17 @@ limitations under the License.
     </function>
 
     <function group='cast' name='DATE' return-type='date'>
-        <formula>CAST(CAST(%1 AS TIMESTAMP) AS DATE)</formula>
+        <formula>CAST(%1 AS DATE)</formula>
         <argument type='str' />
     </function>
 
     <function group='cast' name='DATE' return-type='date'>
-        <formula>CAST(CAST(%1 AS TIMESTAMP) AS DATE)</formula>
+        <formula>CAST(%1 AS DATE)</formula>
         <argument type='datetime' />
     </function>
 
     <function group='cast' name='DATE' return-type='date'>
-        <formula>CAST(CAST(%1 AS TIMESTAMP) AS DATE)</formula>
+        <formula>CAST(%1 AS DATE)</formula>
         <argument type='date' />
     </function>
 
@@ -116,15 +116,187 @@ limitations under the License.
         <argument type='str' />
     </function>
 
+    <function group='cast' name='INT' return-type='int'>
+      <formula>CAST(%1 AS INT)</formula>
+      <argument type='bool' />
+    </function>
+
+    <function group='string' name='LEFT' return-type='str'>
+      <formula>CASE WHEN %2 &gt;= 0 THEN LEFT(%1,CAST(%2 AS BIGINT)) ELSE NULL END</formula>
+      <argument type='str' />
+      <argument type='real' />
+    </function>
+    <function group='string' name='LEFT' return-type='str'>
+      <formula>CASE WHEN %2 &gt;= 0 THEN LEFT(%1,%2) ELSE NULL END</formula>
+      <argument type='str' />
+      <argument type='int' />
+    </function>
+
+    <function group='string' name='RIGHT' return-type='str'>
+      <formula>CASE WHEN %2 &gt;= 0 THEN RIGHT(%1,CAST(%2 AS BIGINT)) ELSE NULL END</formula>
+      <argument type='str' />
+      <argument type='real' />
+    </function>
+    <function group='string' name='RIGHT' return-type='str'>
+      <formula>CASE WHEN %2 &gt;= 0 THEN RIGHT(%1,%2) ELSE NULL END</formula>
+      <argument type='str' />
+      <argument type='int' />
+    </function>
+
+    <function group='numeric' name='MAX' return-type='real'>
+      <formula>CASE&#10;&#9;WHEN (%1 IS NULL) OR (%2 IS NULL) THEN NULL ELSE GREATEST(%1, %2) END</formula>
+      <argument type='real' />
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='MAX' return-type='int'>
+      <formula>CASE&#10;&#9;WHEN (%1 IS NULL) OR (%2 IS NULL) THEN NULL ELSE GREATEST(%1, %2) END</formula>
+      <argument type='int' />
+      <argument type='int' />
+    </function>
+      <function group='string' name='MAX' return-type='str'>
+      <formula>CASE&#10;&#9;WHEN (%1 IS NULL) OR (%2 IS NULL) THEN NULL ELSE GREATEST(%1, %2) END</formula>
+      <argument type='str' />
+      <argument type='str' />
+    </function>
+    <function group='date' name='MAX' return-type='datetime'>
+      <formula>CASE&#10;&#9;WHEN (%1 IS NULL) OR (%2 IS NULL) THEN NULL ELSE GREATEST(%1, %2) END</formula>
+      <argument type='datetime' />
+      <argument type='datetime' />
+    </function>
+    <function group='date' name='MAX' return-type='date'>
+      <formula>CASE&#10;&#9;WHEN (%1 IS NULL) OR (%2 IS NULL) THEN NULL ELSE GREATEST(%1, %2) END</formula>
+      <argument type='date' />
+      <argument type='date' />
+    </function>
+
+    <function group='numeric' name='MIN' return-type='real'>
+      <formula>CASE&#10;&#9;WHEN (%1 IS NULL) OR (%2 IS NULL) THEN NULL ELSE LEAST(%1, %2) END</formula>
+      <argument type='real' />
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='MIN' return-type='int'>
+      <formula>CASE&#10;&#9;WHEN (%1 IS NULL) OR (%2 IS NULL) THEN NULL ELSE LEAST(%1, %2) END</formula>
+      <argument type='int' />
+      <argument type='int' />
+    </function>
+      <function group='string' name='MIN' return-type='str'>
+      <formula>CASE&#10;&#9;WHEN (%1 IS NULL) OR (%2 IS NULL) THEN NULL ELSE LEAST(%1, %2) END</formula>
+      <argument type='str' />
+      <argument type='str' />
+    </function>
+    <function group='date' name='MIN' return-type='datetime'>
+      <formula>CASE&#10;&#9;WHEN (%1 IS NULL) OR (%2 IS NULL) THEN NULL ELSE LEAST(%1, %2) END</formula>
+      <argument type='datetime' />
+      <argument type='datetime' />
+    </function>
+    <function group='date' name='MIN' return-type='date'>
+      <formula>CASE&#10;&#9;WHEN (%1 IS NULL) OR (%2 IS NULL) THEN NULL ELSE LEAST(%1, %2) END</formula>
+      <argument type='date' />
+      <argument type='date' />
+    </function>
+
+
+    <function group='string' name='MID' return-type='str'>
+      <formula>&#10;SUBSTRING(%1,CAST(%2 AS BIGINT))</formula>
+      <argument type='str' />
+      <argument type='real' />
+    </function>
+    <function group='string' name='MID' return-type='str'>
+      <formula>&#10;SUBSTRING(%1,%2)</formula>
+      <argument type='str' />
+      <argument type='int' />
+    </function>
+    <function group='string' name='MID' return-type='str'>
+      <formula>&#10;SUBSTRING(%1,CAST(%2 AS INT),CAST(%3 AS BIGINT))</formula>
+      <argument type='str' />
+      <argument type='real' />
+      <argument type='real' />
+    </function>
+    <function group='string' name='MID' return-type='str'>
+      <formula>&#10;SUBSTRING(%1,%2,%3)</formula>
+      <argument type='str' />
+      <argument type='int' />
+      <argument type='int' />
+    </function>
+    <function group='string' name='SPACE' return-type='str'>
+      <formula>CASE WHEN CAST(%1 AS BIGINT) &gt;= 0 THEN SPACE(CAST(%1 AS BIGINT)) END</formula>
+      <argument type='real' />
+    </function>
+    <function group='string' name='SPACE' return-type='str'>
+      <formula>CASE WHEN %1 &gt;= 0 THEN SPACE(%1) END</formula>
+      <argument type='int' />
+    </function>
+    <function group='string' name='STARTSWITH' return-type='bool'>
+      <formula>&#10;STARTSWITH(%1, %2)</formula>
+      <argument type='str' />
+      <argument type='str' />
+    </function>
+     <function group='string' name='ENDSWITH' return-type='bool'>
+      <formula>&#10;ENDSWITH(%1, %2)</formula>
+      <argument type='str' />
+      <argument type='str' />
+    </function>
+
+    <!-- tableau returns 1/0 instead of true/false>
+     <function group='cast' name='STR' return-type='str'>
+      <formula>CAST(%1 AS STRING)</formula>
+      <argument type='bool' />
+    </function>
+    <-->
+
+    <function group='cast' name='INT' return-type='int'>
+      <formula>CAST(%1 AS BIGINT)</formula>
+      <argument type='bool' />
+    </function>
+
+    <function group='cast' name='FLOAT' return-type='real'>
+      <formula>CAST(%1 AS DOUBLE)</formula>
+      <argument type='bool' />
+    </function>
+
+    <function group='aggregate' name='COUNT' return-type='int'>
+      <formula>COUNT(%1)</formula>
+      <unagg-formula>(CASE WHEN (%1 IS NULL) THEN 0 ELSE 1 END)</unagg-formula>
+      <argument type='bool' />
+    </function>
+    <function group='aggregate' name='COUNTD' return-type='int'>
+      <formula>COUNT(DISTINCT %1)</formula>
+      <unagg-formula>(CASE WHEN (%1 IS NULL) THEN 0 ELSE 1 END)</unagg-formula>
+      <argument type='bool' />
+    </function>
+
+    <function group='numeric' name='COT' return-type='real'>
+      <formula>IF(%1 != 0, COT(%1), NULL)</formula>
+      <argument type='real' />
+    </function>
+
+    <function group='numeric' name='LN' return-type='real'>
+      <formula>LN(%1)</formula>
+      <argument type='real' />
+    </function>
+
+    <function group='numeric' name='LOG' return-type='real'>
+      <formula>LOG10(%1)</formula>
+      <argument type='real' />
+    </function>
+    <function group='numeric' name='LOG' return-type='real'>
+      <formula>LOG(%2, %1)</formula>
+      <argument type='real' />
+      <argument type='real' />
+    </function>
+
+     <function group='numeric' name='TAN' return-type='real'>
+      <formula>TAN(%1)</formula>
+      <argument type='real' />
+    </function>
+
+
     <date-function name='DATENAME' return-type='str'>
-        <formula>
-            FORMAT_NUMBER(FLOOR((14 + DATEDIFF(%2, TRUNC(%2,'YY')) + DATEDIFF(TRUNC(%2,'YY'), NEXT_DAY(TRUNC(%2,'YY'), 'MO')))/7), 0)
-        </formula>
         <formula part='quarter'>CAST(QUARTER(%2) AS STRING)</formula>
         <formula part='year'>CAST(YEAR(%2) AS STRING)</formula>
         <formula part='month'>CAST(MONTH(%2) AS STRING)</formula>
         <formula part='week'>
-            FORMAT_NUMBER(FLOOR((14 + DATEDIFF(%2, TRUNC(%2,'YY')) + DATEDIFF(TRUNC(%2,'YY'), NEXT_DAY(TRUNC(%2,'YY'), 'SU')))/7), 0)
+            FORMAT_NUMBER(FLOOR((14 + DATEDIFF(%2, TRUNC(%2,&apos;YY&apos;)) + DATEDIFF(TRUNC(%2,&apos;YY&apos;), NEXT_DAY(TRUNC(%2,&apos;YY&apos;), &apos;SU&apos;)))/7), 0)
         </formula>
         <formula part='day'>CAST(DAY(%2) AS STRING)</formula>
         <formula part='weekday'>CAST(DAYOFWEEK(%2) AS STRING)</formula>
@@ -135,16 +307,20 @@ limitations under the License.
         <argument type='localstr' />
         <argument type='datetime' />
     </date-function>
-
     <date-function name='DATENAME' return-type='str'>
-        <formula>
-            FORMAT_NUMBER(FLOOR((14 + DATEDIFF(%2, TRUNC(%2,'YY')) + DATEDIFF(TRUNC(%2,'YY'), NEXT_DAY(TRUNC(%2,'YY'), 'MO')))/7), 0)
-        </formula>
+      <formula part='week'>
+          FORMAT_NUMBER(FLOOR((14 + DATEDIFF(%2, TRUNC(%2,&apos;YY&apos;)) + DATEDIFF(TRUNC(%2,&apos;YY&apos;), NEXT_DAY(TRUNC(%2,&apos;YY&apos;), %3)))/7), 0)
+      </formula>
+      <argument type='localstr' />
+      <argument type='datetime' />
+      <argument type='localstr' />
+    </date-function>
+    <date-function name='DATENAME' return-type='str'>
         <formula part='quarter'>CAST(QUARTER(%2) AS STRING)</formula>
         <formula part='year'>CAST(YEAR(%2) AS STRING)</formula>
         <formula part='month'>CAST(MONTH(%2) AS STRING)</formula>
         <formula part='week'>
-            FORMAT_NUMBER(FLOOR((14 + DATEDIFF(%2, TRUNC(%2,'YY')) + DATEDIFF(TRUNC(%2,'YY'), NEXT_DAY(TRUNC(%2,'YY'), 'SU')))/7), 0)
+            FORMAT_NUMBER(FLOOR((14 + DATEDIFF(%2, TRUNC(%2,&apos;YY&apos;)) + DATEDIFF(TRUNC(%2,&apos;YY&apos;), NEXT_DAY(TRUNC(%2,&apos;YY&apos;), &apos;SU&apos;)))/7), 0)
         </formula>
         <formula part='day'>CAST(DAY(%2) AS STRING)</formula>
         <formula part='weekday'>CAST(DAYOFWEEK(%2) AS STRING)</formula>
@@ -155,6 +331,159 @@ limitations under the License.
         <argument type='localstr' />
         <argument type='date' />
     </date-function>
+    <date-function name='DATENAME' return-type='str'>
+      <formula part='week'>
+          FORMAT_NUMBER(FLOOR((14 + DATEDIFF(%2, TRUNC(%2,&apos;YY&apos;)) + DATEDIFF(TRUNC(%2,&apos;YY&apos;), NEXT_DAY(TRUNC(%2,&apos;YY&apos;), %3)))/7), 0)</formula>
+      <argument type='localstr' />
+      <argument type='date' />
+      <argument type='localstr' />
+    </date-function>
+    
+
+     <date-function name='DATEPART' return-type='int'>
+      <formula part='year'>YEAR(%2)</formula>
+      <formula part='quarter'>QUARTER(%2)</formula>
+      <formula part='month'>MONTH(%2)</formula>
+      <formula part='dayofyear'>DAYOFYEAR(%2)</formula>
+      <formula part='day'>DAY(%2)</formula>
+      <formula part='weekday'>DAYOFWEEK(%2)</formula>
+      <formula part='week'>FLOOR((14 + DATEDIFF(%2, TRUNC(%2,&apos;YY&apos;)) + DATEDIFF(TRUNC(%2,&apos;YY&apos;),NEXT_DAY(TRUNC(%2,&apos;YY&apos;),&apos;SU&apos;)))/7)</formula>
+      <formula part='hour'>HOUR(%2)</formula>
+      <formula part='minute'>MINUTE(%2)</formula>
+      <formula part='second'>SECOND(%2)</formula>
+      <argument type='localstr' />
+      <argument type='datetime' />
+    </date-function>
+    <date-function name='DATEPART' return-type='int'>
+      <formula part='week'>FLOOR((14 + DATEDIFF(%2, TRUNC(%2,&apos;YY&apos;)) + DATEDIFF(TRUNC(%2,&apos;YY&apos;),NEXT_DAY(TRUNC(%2,&apos;YY&apos;),%3)))/7)</formula>
+      <argument type='localstr' />
+      <argument type='datetime' />
+      <argument type='localstr' />
+    </date-function>
+
+    <date-function name='DATEPART' return-type='int'>
+      <formula part='year'>YEAR(%2)</formula>
+      <formula part='quarter'>QUARTER(%2)</formula>
+      <formula part='month'>MONTH(%2)</formula>
+      <formula part='dayofyear'>DAYOFYEAR(%2)</formula>
+      <formula part='day'>DAY(%2)</formula>
+      <formula part='weekday'>DAYOFWEEK(%2)</formula>
+      <formula part='week'>FLOOR((14 + DATEDIFF(%2, TRUNC(%2,&apos;YY&apos;)) + DATEDIFF(TRUNC(%2,&apos;YY&apos;),NEXT_DAY(TRUNC(%2,&apos;YY&apos;),&apos;SU&apos;)))/7)</formula>
+      <formula part='hour'>HOUR(%2)</formula>
+      <formula part='minute'>MINUTE(%2)</formula>
+      <formula part='second'>SECOND(%2)</formula>
+      <argument type='localstr' />
+      <argument type='date' />
+    </date-function>
+    <date-function name='DATEPART' return-type='int'>
+      <formula part='week'>FLOOR((14 + DATEDIFF(%2, TRUNC(%2,&apos;YY&apos;)) + DATEDIFF(TRUNC(%2,&apos;YY&apos;),NEXT_DAY(TRUNC(%2,&apos;YY&apos;),%3)))/7)</formula>
+      <argument type='localstr' />
+      <argument type='date' />
+      <argument type='localstr' />
+    </date-function>
+
+<!--
+    <date-function name='DATEADD' return-type='datetime'>
+      <formula part='year'>CAST(CONCAT(YEAR(%3)+%2, SUBSTR(CAST(%3 AS TIMESTAMP), 5)) AS TIMESTAMP)</formula>
+      <formula part='quarter'>CAST(CONCAT(ADD_MONTHS(%3,(%2 * 3)),SUBSTR(CAST(%3 AS TIMESTAMP),11)) AS TIMESTAMP)</formula>
+      <formula part='month'>CAST(CONCAT(ADD_MONTHS(%3,%2),SUBSTR(CAST(%3 AS TIMESTAMP),11)) AS TIMESTAMP)</formula>
+      <formula part='dayofyear'>CAST(CONCAT(DATE_ADD(CAST(%3 AS TIMESTAMP), CAST(%2 AS INT)), SUBSTR(CAST(CAST(%3 AS TIMESTAMP) AS TIMESTAMP), 11)) AS TIMESTAMP)</formula>
+      <formula part='day'>DATE_ADD(%3, %2)</formula>
+      <formula part='weekday'>DATE_ADD(%3, %2)</formula>
+      <formula part='week'>CAST(CONCAT(DATE_ADD(CAST(%3 AS TIMESTAMP), CAST(7 * %2 AS INT)), SUBSTR(CAST(CAST(%3 AS TIMESTAMP) AS TIMESTAMP), 11)) AS TIMESTAMP)</formula>
+      <formula part='hour'>CAST(FROM_UNIXTIME(UNIX_TIMESTAMP(%3) + %2*3600) AS TIMESTAMP)</formula>
+      <formula part='minute'>CAST(FROM_UNIXTIME(UNIX_TIMESTAMP(%3) + %2*60) AS TIMESTAMP)</formula>
+      <formula part='second'>CAST(FROM_UNIXTIME(UNIX_TIMESTAMP(%3) + %2) AS TIMESTAMP)</formula>
+      <argument type='localstr' />
+      <argument type='int' />
+      <argument type='datetime' />
+    </date-function>
+-->
+    <date-function name='DATEADD' return-type='datetime'>
+      <formula part='year'>DATEADD(YEAR, %2, %3)</formula>
+      <formula part='quarter'>DATEADD(QUARTER, %2, %3)</formula>
+      <formula part='month'>DATEADD(MONTH, %2, %3)</formula>
+      <formula part='dayofyear'>DATEADD(DAYOFYEAR, %2, %3)</formula>
+      <formula part='day'>DATEADD(DAY, %2, %3)</formula>
+      <formula part='weekday'>DATEADD(DAY, %2, %3)</formula>
+      <formula part='week'>DATEADD(WEEK, %2, %3)</formula>
+      <formula part='hour'>DATEADD(HOUR, %2, %3)</formula>
+      <formula part='minute'>DATEADD(MINUTE, %2, %3)</formula>
+      <formula part='second'>DATEADD(SECOND, %2, %3)</formula>
+      <argument type='localstr' />
+      <argument type='int' />
+      <argument type='datetime' />
+    </date-function>
+
+    <!-- Databricks Datediff has different precisions, e.g. datediff of year would take specific date into account as well
+
+    <date-function name='DATEDIFF' return-type='int'>
+      <formula part='year'>DATEDIFF(YEAR, %2, %3)</formula>
+      <formula part='quarter'>DATEDIFF(QUARTER, %2, %3)</formula>
+      <formula part='month'>DATEDIFF(MONTH, %2, %3)</formula>
+      <formula part='dayofyear'>DATEDIFF(DAY, %2, %3)</formula>
+      <formula part='day'>DATEDIFF(DAY, %2, %3)</formula>
+      <formula part='weekday'>DATEDIFF(DAY, %2, %3)</formula>
+      <formula part='week'>FLOOR(DATEDIFF(NEXT_DAY(%3,&apos;SU&apos;),NEXT_DAY(%2,&apos;SU&apos;))/7)</formula>
+      <formula part='hour'>DATEDIFF(HOUR, %2, %3)</formula>
+      <formula part='minute'>DATEDIFF(MINUTE, %2, %3)</formula>
+      <formula part='second'>DATEDIFF(SECOND, %2, %3)</formula>
+      <argument type='localstr' />
+      <argument type='datetime' />
+      <argument type='datetime' />
+    </date-function>
+    <date-function name='DATEDIFF' return-type='int'>
+      <formula part='week'>FLOOR(DATEDIFF(NEXT_DAY(%3,%4),NEXT_DAY(%2,%4))/7)</formula>
+      <argument type='localstr' />
+      <argument type='datetime' />
+      <argument type='datetime' />
+      <argument type='localstr' />
+    </date-function>
+-->
+    <date-function name='DATETRUNC' return-type='datetime'>
+      <formula part='year'>DATE_TRUNC(&apos;YEAR&apos;, %2)</formula>
+      <formula part='quarter'>DATE_TRUNC(&apos;QUARTER&apos;, %2)</formula>
+      <formula part='month'>DATE_TRUNC(&apos;MONTH&apos;, %2)</formula>
+      <formula part='dayofyear'>DATE_TRUNC(&apos;DAY&apos;, %2)</formula>
+      <formula part='day'>DATE_TRUNC(&apos;DAY&apos;, %2)</formula>
+      <formula part='weekday'>DATE_TRUNC(&apos;DAY&apos;, %2)</formula>
+      <formula part='week'>CAST(DATE_ADD(NEXT_DAY(%2,&apos;SU&apos;),-7) AS DATE)</formula>
+      <formula part='hour'>DATE_TRUNC(&apos;HOUR&apos;, %2)</formula>
+      <formula part='minute'>DATE_TRUNC(&apos;MINUTE&apos;, %2)</formula>
+      <formula part='second'>DATE_TRUNC(&apos;SECOND&apos;, %2)</formula>
+      <argument type='localstr' />
+      <argument type='datetime' />
+    </date-function>
+
+    <date-function name='DATETRUNC' return-type='datetime'>
+      <formula part='week'>CAST(DATE_ADD(NEXT_DAY(%2,%3),-7) AS DATE)</formula>
+      <argument type='localstr' />
+      <argument type='datetime' />
+      <argument type='localstr' />
+    </date-function>
+ <date-function name='DATETRUNC' return-type='datetime'>
+      <formula part='year'>DATE_TRUNC(&apos;YEAR&apos;, %2)</formula>
+      <formula part='quarter'>DATE_TRUNC(&apos;QUARTER&apos;, %2)</formula>
+      <formula part='month'>DATE_TRUNC(&apos;MONTH&apos;, %2)</formula>
+      <formula part='dayofyear'>DATE_TRUNC(&apos;DAY&apos;, %2)</formula>
+      <formula part='day'>DATE_TRUNC(&apos;DAY&apos;, %2)</formula>
+      <formula part='weekday'>DATE_TRUNC(&apos;DAY&apos;, %2)</formula>
+      <formula part='week'>CAST(DATE_ADD(NEXT_DAY(%2,&apos;SU&apos;),-7) AS DATE)</formula>
+      <formula part='hour'>DATE_TRUNC(&apos;HOUR&apos;, %2)</formula>
+      <formula part='minute'>DATE_TRUNC(&apos;MINUTE&apos;, %2)</formula>
+      <formula part='second'>DATE_TRUNC(&apos;SECOND&apos;, %2)</formula>
+      <argument type='localstr' />
+      <argument type='date' />
+    </date-function>
+
+    <date-function name='DATETRUNC' return-type='datetime'>
+      <formula part='week'>CAST(DATE_ADD(NEXT_DAY(%2,%3),-7) AS DATE)</formula>
+      <argument type='localstr' />
+      <argument type='date' />
+      <argument type='localstr' />
+    </date-function>
+
+
 </function-map>
 
 <sql-format>
@@ -189,7 +518,7 @@ limitations under the License.
 </date-parts>
 	
 <format-is-distinct value='Keyword' />
-
+<start-of-week-format value='String' />
 </sql-format>
 
 </dialect>
