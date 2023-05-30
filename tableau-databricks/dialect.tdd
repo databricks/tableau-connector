@@ -382,23 +382,7 @@ limitations under the License.
       <argument type='localstr' />
     </date-function>
 
-    <date-function name='DATEADD' return-type='datetime'>
-      <formula part='year'>DATEADD(YEAR, %2, %3)</formula>
-      <formula part='quarter'>DATEADD(QUARTER, %2, %3)</formula>
-      <formula part='month'>DATEADD(MONTH, %2, %3)</formula>
-      <formula part='dayofyear'>DATEADD(DAYOFYEAR, %2, %3)</formula>
-      <formula part='day'>DATEADD(DAY, %2, %3)</formula>
-      <formula part='weekday'>DATEADD(DAY, %2, %3)</formula>
-      <formula part='week'>DATEADD(WEEK, %2, %3)</formula>
-      <formula part='hour'>DATEADD(HOUR, %2, %3)</formula>
-      <formula part='minute'>DATEADD(MINUTE, %2, %3)</formula>
-      <formula part='second'>DATEADD(SECOND, %2, %3)</formula>
-      <argument type='localstr' />
-      <argument type='int' />
-      <argument type='datetime' />
-    </date-function>
-
-    <!-- Databricks Datediff has different precisions, e.g. datediff of year would take specific date into account as well
+    <!-- Databricks Datediff has different precisions compared with Tableau datediff, e.g. datediff of year would take specific date into account as well
 
     <date-function name='DATEDIFF' return-type='int'>
       <formula part='year'>DATEDIFF(YEAR, %2, %3)</formula>
