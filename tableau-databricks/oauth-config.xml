@@ -11,6 +11,7 @@
 
     <authUri>/oauth2/v2.0/authorize</authUri>
     <tokenUri>/oauth2/v2.0/token</tokenUri>
+    <instanceUrlSuffix>/oidc</instanceUrlSuffix>
     <instanceUrlValidationRegex>^https:\/\/([a-zA-Z0-9-]+\.)+((microsoftonline\.(com|us|cn|de))|chinacloudapi\.cn|[a-zA-Z]+\/oidc).*</instanceUrlValidationRegex>
 
     <scopes>openid</scopes>
@@ -56,7 +57,11 @@
             <key>OAUTH_CAP_SUPPORTS_GET_USERINFO_FROM_ID_TOKEN</key>
             <value>true</value>
         </entry>
-   </capabilities>
+	    <entry>
+            <key>OAUTH_CAP_INFER_INSTANCE_URL_FROM_SERVER</key>
+            <value>true</value>
+        </entry>
+    </capabilities>
     <accessTokenResponseMaps>
         <entry>
             <key>ACCESSTOKEN</key>
