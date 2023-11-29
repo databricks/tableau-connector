@@ -155,6 +155,8 @@ limitations under the License.
         <customization name='CAP_ODBC_SUPPRESS_INFO_SCHEMA_SCHEMAS' value='yes' />
         <!--enable cross-catalog join within same connection-->
         <customization name='CAP_ODBC_INCLUDE_CATALOG_NAME' value='yes' />
+        <!-- escape underscore in metadata names-->
+        <customization name='CAP_ESCAPE_UNDERSCORE_IN_NAMES' value='yes' />
     </customizations>
 </connection-customization>
 <connection-fields file='connection-fields.xml'/>
