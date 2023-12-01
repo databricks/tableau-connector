@@ -16,12 +16,14 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<tdr class='databricks'>
+<tdr class='databricks_jdbc'>
     <connection-resolver>
         <connection-builder>
             <script file='connection-builder.js'/>
         </connection-builder>
-	
+	    <connection-properties>
+            <script file='connectionProperties.js'/>
+        </connection-properties>
         <connection-normalizer>
             <required-attributes>
                 <attribute-list>
@@ -39,14 +41,4 @@ limitations under the License.
             </required-attributes>
         </connection-normalizer>
     </connection-resolver>
-	
-    <driver-resolver>
-        <driver-match>
-            <driver-name type='regex'>Databricks.*</driver-name>
-        </driver-match>
-        <driver-match>
-            <driver-name type='regex'>Simba Spark.*</driver-name>
-            <driver-version min="2.6.15"/>
-        </driver-match>
-    </driver-resolver>
 </tdr>
