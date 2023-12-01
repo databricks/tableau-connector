@@ -20,9 +20,9 @@ limitations under the License. -->
   <string name="http_path_prompt">HTTP Path</string>
 
   <string name="authentication_prompt">Authentication</string>
-  <string name="authentication_label_oauth">OAuth / Azure AD</string>
-  <string name="authentication_label_token">Personal Access Token</string>
-  <string name="authentication_label_user_pass">Username / Password</string>
+  <string name="authentication_label_oauth">Databricks login (recommended)</string>
+  <string name="authentication_label_token">Personal access token</string>
+  <string name="authentication_label_user_pass">Basic auth (legacy)</string>
   <string name="authentication_oauth_advanced_options_prompt">Advanced configuration for OAuth</string>
   <string name="authentication_oauth_endpoint_prompt">OAuth Endpoint e.g. https://[Server Hostname]/oidc</string>
   
