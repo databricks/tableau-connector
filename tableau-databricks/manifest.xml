@@ -95,7 +95,7 @@ limitations under the License.
         <customization name='CAP_QUERY_SUPPRESS_CHECK_DOMAIN_LITERALS_THRESHOLD' value='no' />
         <customization name='CAP_QUERY_SUPPRESS_NULL_CHECK_QUERIES' value='no' />
         <customization name='CAP_QUERY_TIME_REQUIRES_CAST' value='no' />
-        <customization name='CAP_QUERY_TOPSTYLE_LIMIT' value='no' />
+        <customization name='CAP_QUERY_TOPSTYLE_LIMIT' value='yes' />
         <customization name='CAP_QUERY_TOPSTYLE_ROWNUM' value='no' />
         <customization name='CAP_QUERY_TOPSTYLE_TOP' value='no' />
         <customization name='CAP_QUERY_TOP_N' value='yes' />
