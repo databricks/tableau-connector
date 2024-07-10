@@ -41,12 +41,20 @@ limitations under the License. -->
     <field name="v-http-path" label="@string/http_path_prompt/" category="authentication" value-type="string">
         <conditions>
             <condition field="authentication" value="auth-pass" />
+            <condition field="authentication" value="auth-user-pass" />
+        </conditions>
+    </field>
+
+    <field name="username" label="@string/username_prompt/" category="authentication" value-type="string">
+        <conditions>
+            <condition field="authentication" value="auth-user-pass" />
         </conditions>
     </field>
 
     <field name="password" label="@string/password_prompt/" category="authentication" value-type="string" secure="true">
      <conditions>
          <condition field="authentication" value="auth-pass" />
+         <condition field="authentication" value="auth-user-pass" />
       </conditions>
     </field>
 
