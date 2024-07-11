@@ -30,13 +30,6 @@ limitations under the License.
 	params["SPARKSERVERTYPE"] = "3";
 	params["SSL"] = "1";
 
-	// If the HTTP path is empty, use the default HTTP path.
-	if(params["HTTPPATH"] == "") 
-	{
-		params["HTTPPATH"] = attr["default-http-path"];
-		// attr[vendorDefined.attributeHttpPath] = attr["default-http-path"];
-	}
-
 	// attributeDatabase contains the catalog name.
 	if (attr[connectionHelper.attributeDatabase] &&
 	    attr[connectionHelper.attributeDatabase] !== "SPARK") {
