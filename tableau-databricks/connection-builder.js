@@ -30,6 +30,13 @@ limitations under the License.
 	params["SPARKSERVERTYPE"] = "3";
 	params["SSL"] = "1";
 
+	// If the HTTP path is empty, use the default HTTP path.
+	if(params["HTTPPATH"] == "") 
+	{
+		params["HTTPPATH"] = attr["default-http-path"];
+		// attr[vendorDefined.attributeHttpPath] = attr["default-http-path"];
+	}
+
 	// attributeDatabase contains the catalog name.
 	if (attr[connectionHelper.attributeDatabase] &&
 	    attr[connectionHelper.attributeDatabase] !== "SPARK") {
@@ -38,6 +45,13 @@ limitations under the License.
 
 	var authenticationMode = attr[connectionHelper.attributeAuthentication];
 	switch (authenticationMode) {
+		case "auth-user-pass":
+		case "Username and Password":
+			params["AUTHMECH"] = 3;
+			params["UID"] = attr[connectionHelper.attributeUsername];
+			params["PWD"] = attr[connectionHelper.attributePassword];
+			break;
+
 		case "auth-pass":
 			params["AUTHMECH"] = 3;
 			params["UID"] = "token";
