@@ -34,7 +34,7 @@ limitations under the License.
 	if(params["HTTPPATH"] == "") 
 	{
 		params["HTTPPATH"] = attr["default-http-path"];
-		attr[vendorDefined.attributeHttpPath] = attr["default-http-path"];
+		// attr[vendorDefined.attributeHttpPath] = attr["default-http-path"];
 	}
 
 	// attributeDatabase contains the catalog name.
