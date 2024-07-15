@@ -28,6 +28,7 @@ limitations under the License.
                     <attr>class</attr>
                     <attr>server</attr>
                     <attr>v-http-path</attr>
+                    <attr>default-http-path</attr>
                     <attr>dbname</attr>
                     <attr>one-time-sql</attr>
                     <attr>authentication</attr>
