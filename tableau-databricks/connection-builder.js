@@ -33,8 +33,7 @@ limitations under the License.
 	// If the HTTP path is empty, use the default HTTP path.
 	if(params["HTTPPATH"] == "") 
 	{
-		params["HTTPPATH"] = attr["default-http-path"];
-		// attr[vendorDefined.attributeHttpPath] = attr["default-http-path"];
+		params["HTTPPATH"] = attr[connectionHelper.attributeDefaultHttpPath];
 	}
 
 	// attributeDatabase contains the catalog name.
