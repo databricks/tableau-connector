@@ -27,7 +27,7 @@ limitations under the License. -->
   <string name="authentication_oauth_endpoint_prompt">OAuth Endpoint e.g. https://[Server Hostname]/oidc</string>
   
   <string name="username_prompt">Username</string>
-  <string name="password_prompt">Password</string>
+  <string name="password_prompt">Token</string>
 
   <string name="odbc_extra_config_prompt">Extra ODBC options ('key=value;key2=value2;...')</string>
 
