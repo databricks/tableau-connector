@@ -23,8 +23,6 @@ limitations under the License. -->
     </field>
     <!-- /Endpoint -->
 
-    <field name="v-http-path" label="@string/http_path_prompt/" category="endpoint" value-type="string" />
-
     <!-- Authentication -->
     <field name="authentication" label="@string/authentication_prompt/" category="authentication" value-type="selection" default-value="oauth">
         <selection-group>
@@ -37,6 +35,12 @@ limitations under the License. -->
      <conditions>
          <condition field="authentication" value="auth-pass" />
       </conditions>
+    </field>
+
+    <field name="v-http-path" label="@string/http_path_prompt/" category="endpoint" value-type="string">
+        <conditions>
+            <condition field="authentication" value="auth-pass" />
+        </conditions>
     </field>
 
     <!-- /Authentication -->
@@ -73,6 +77,7 @@ limitations under the License. -->
         </conditions>
     </field>-->
     <!-- /Proxy -->
+    <field name="v-http-path" label="@string/http_path_prompt/" category="advanced" value-type="string" optional="true"/>
 
     <field name="odbc-connect-string-extras" label="@string/odbc_extra_config_prompt/" category="advanced" value-type="string" optional="true">
         <!-- valid keys: test, Test, SSP_spark.test -->
