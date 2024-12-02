@@ -30,7 +30,20 @@ limitations under the License. -->
         <selection-group>
             <option label="@string/authentication_label_oauth/" value="oauth"/>
             <option label="@string/authentication_label_token/" value="auth-pass"/>
+            <option label="@string/authentication_label_sp/" value="auth-client-creds" />
         </selection-group>
+    </field>
+
+    <field name="username" label="@string/sp_client_id_prompt/" category="authentication" value-type="string">
+        <conditions>
+            <condition field="authentication" value="auth-client-creds" />
+        </conditions>
+    </field>
+
+    <field name="password" label="@string/sp_client_secret_prompt/" category="authentication" value-type="string">
+        <conditions>
+            <condition field="authentication" value="auth-client-creds" />
+        </conditions>
     </field>
 
     <field name="password" label="@string/password_prompt/" category="authentication" value-type="string" secure="true">
