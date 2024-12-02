@@ -22,12 +22,16 @@ limitations under the License. -->
   <string name="authentication_prompt">Authentication</string>
   <string name="authentication_label_oauth">Databricks login (recommended)</string>
   <string name="authentication_label_token">Personal access token</string>
+  <string name="authentication_label_sp">Service Principal OAuth</string>
   <string name="authentication_label_user_pass">Basic auth (legacy)</string>
   <string name="authentication_oauth_advanced_options_prompt">Advanced configuration for OAuth</string>
   <string name="authentication_oauth_endpoint_prompt">OAuth Endpoint e.g. https://[Server Hostname]/oidc</string>
   
   <string name="username_prompt">Username</string>
   <string name="password_prompt">Token</string>
+
+  <string name="sp_client_id_prompt">Client ID</string>
+  <string name="sp_client_secret_prompt">Client Secret</string>
 
   <string name="odbc_extra_config_prompt">Extra ODBC options ('key=value;key2=value2;...')</string>
 
