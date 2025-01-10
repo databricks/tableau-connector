@@ -16,10 +16,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<connector-plugin class='databricks' superclass='spark' plugin-version='1.0' name='@string/databricks/' version='18.1'>
-<connection-customization class="databricks" enabled="true" version="1.0">
-    <vendor name="databricks"/>
-    <driver name="databricks"/>
+<connector-plugin class='databricks2' superclass='spark' plugin-version='1.0' name='@string/databricks/' version='18.1'>
+    <vendor-information> <company name="Company Name"/> <support-link url = "https://example.com"/> </vendor-information>
+    <connection-customization class="databricks2" enabled="true" version="1.0">
+    <vendor name="databricks2"/>
+    <driver name="databricks2"/>
     <customizations>
         <!-- ### Properties inherited from the Spark SQL connector -->
         <customization name='CAP_AUTH_DB_IMPERSONATE' value='no' />

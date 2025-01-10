@@ -22,7 +22,18 @@ limitations under the License. -->
         <validation-rule reg-exp="^([0-9A-Za-z-]+\.)+([0-9A-Za-z-]+)$" />
     </field>
     <!-- /Endpoint -->
-
+    
+    <field name="instanceurl" label="@string/authentication_oauth_endpoint_prompt/" category="authentication" value-type="string">
+        <conditions>
+          <condition field="authentication" value="oauth" />
+        </conditions>
+        <!-- limit to well-known domains:
+          https://*.microsoftonline.(com|us|de|cn) (public, govcloud, germany, china),
+          https://*.chinacloudapi.cn (China)
+          https://*/oidc (Databricks redirector) -->
+        <validation-rule reg-exp="^https:\/\/([a-zA-Z0-9-]+\.)+((microsoftonline\.(com|us|cn|de))|chinacloudapi\.cn|[a-zA-Z]+\/oidc)" />
+    </field>
+    
     <field name="v-http-path" label="@string/http_path_prompt/" category="endpoint" value-type="string" />
 
     <!-- Authentication -->
@@ -40,17 +51,13 @@ limitations under the License. -->
         </conditions>
     </field>
 
-    <field name="password" label="@string/sp_client_secret_prompt/" category="authentication" value-type="string">
-        <conditions>
-            <condition field="authentication" value="auth-client-creds" />
-        </conditions>
-    </field>
-
     <field name="password" label="@string/password_prompt/" category="authentication" value-type="string" secure="true">
-     <conditions>
+    <conditions>
          <condition field="authentication" value="auth-pass" />
+         <condition field="authentication" value="auth-client-creds" />
       </conditions>
     </field>
+
 
     <!-- /Authentication -->
 
@@ -87,9 +94,5 @@ limitations under the License. -->
     </field>-->
     <!-- /Proxy -->
 
-    <field name="odbc-connect-string-extras" label="@string/odbc_extra_config_prompt/" category="advanced" value-type="string" optional="true">
-        <!-- valid keys: test, Test, SSP_spark.test -->
-        <!-- valid values: word, Word, some-arbitrary*string, {has-semicolon;}, {has{closing}}bracket;} -->
-        <validation-rule reg-exp="^(([a-zA-Z0-9_.-]+)=(([^{};]*)|(\{((\}\}|[^}])*)\}));)*(([a-zA-Z0-9_.-]+)=(([^{};]*)|(\{((\}\}|[^}])*)\})))?$" />
-    </field>
+
 </connection-fields>

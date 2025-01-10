@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <pluginOAuthConfig>
-    <dbclass>databricks</dbclass>
+    <dbclass>databricks2</dbclass>
 
     <clientIdDesktop>0464ea90-c12f-42a7-b347-c2311ca4413c</clientIdDesktop>
     <redirectUrisDesktop>http://localhost:55555/Callback</redirectUrisDesktop>
@@ -11,7 +11,6 @@
 
     <authUri>/oauth2/v2.0/authorize</authUri>
     <tokenUri>/oauth2/v2.0/token</tokenUri>
-    <instanceUrlSuffix>/oidc</instanceUrlSuffix>
     <instanceUrlValidationRegex>^https:\/\/([a-zA-Z0-9-]+\.)+((microsoftonline\.(com|us|cn|de))|chinacloudapi\.cn|[a-zA-Z]+\/oidc).*</instanceUrlValidationRegex>
 
     <scopes>openid</scopes>
@@ -55,10 +54,6 @@
         </entry>
         <entry>
             <key>OAUTH_CAP_SUPPORTS_GET_USERINFO_FROM_ID_TOKEN</key>
-            <value>true</value>
-        </entry>
-	    <entry>
-            <key>OAUTH_CAP_INFER_INSTANCE_URL_FROM_SERVER</key>
             <value>true</value>
         </entry>
     </capabilities>
