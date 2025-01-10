@@ -17,7 +17,7 @@ limitations under the License.
 -->
 
 <dialect name='DatabricksDialect'
-         class='databricks'
+         class='databricks2'
          base='Hive12Dialect'
          version='18.1'>
 				 

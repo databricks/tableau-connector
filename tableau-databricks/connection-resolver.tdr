@@ -16,7 +16,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<tdr class='databricks'>
+<tdr class='databricks2'>
     <connection-resolver>
         <connection-builder>
             <script file='connection-builder.js'/>
