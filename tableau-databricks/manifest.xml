@@ -155,6 +155,7 @@ limitations under the License.
         <customization name='CAP_ODBC_SUPPRESS_INFO_SCHEMA_SCHEMAS' value='yes' />
         <!--enable cross-catalog join within same connection-->
         <customization name='CAP_ODBC_INCLUDE_CATALOG_NAME' value='yes' />
+	<customization name='CAP_SUPPORTS_UNION' value='yes' />
     </customizations>
 </connection-customization>
 <connection-fields file='connection-fields.xml'/>
