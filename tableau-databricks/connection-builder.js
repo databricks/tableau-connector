@@ -62,7 +62,7 @@ limitations under the License.
 			params["AUTH_FLOW"] = 1;
 			params["Auth_Client_ID"] = attr[connectionHelper.attributeUsername];
 			params["Auth_Client_Secret"] = attr[connectionHelper.attributePassword];
-			params["Auth_Scope"] = "all-apis";
+			params["Auth_Scope"] = "sql";
 			break;
 
 		default:
