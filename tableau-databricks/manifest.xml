@@ -16,11 +16,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<connector-plugin class='databricks2' superclass='spark' plugin-version='1.0' name='@string/databricks/' version='18.1'>
-    <vendor-information> <company name="Company Name"/> <support-link url = "https://example.com"/> </vendor-information>
-    <connection-customization class="databricks2" enabled="true" version="1.0">
-    <vendor name="databricks2"/>
-    <driver name="databricks2"/>
+<connector-plugin class='databricks' superclass='spark' plugin-version='1.0' name='@string/databricks/' version='18.1'>
+<connection-customization class="databricks" enabled="true" version="1.0">
+    <vendor name="databricks"/>
+    <driver name="databricks"/>
     <customizations>
         <!-- ### Properties inherited from the Spark SQL connector -->
         <customization name='CAP_AUTH_DB_IMPERSONATE' value='no' />
@@ -156,6 +155,7 @@ limitations under the License.
         <customization name='CAP_ODBC_SUPPRESS_INFO_SCHEMA_SCHEMAS' value='yes' />
         <!--enable cross-catalog join within same connection-->
         <customization name='CAP_ODBC_INCLUDE_CATALOG_NAME' value='yes' />
+	<customization name='CAP_SUPPORTS_UNION' value='yes' />
     </customizations>
 </connection-customization>
 <connection-fields file='connection-fields.xml'/>
