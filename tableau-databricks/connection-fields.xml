@@ -50,6 +50,8 @@ limitations under the License. -->
 
     <!-- /Authentication -->
 
+    <field name="query-tags" label="@string/query_tags_prompt/" category="authentication" value-type="string" optional="true" />
+
     <!-- Proxy -->
 
     <!-- TODO: enable once 'secure="true"' is supported -->
