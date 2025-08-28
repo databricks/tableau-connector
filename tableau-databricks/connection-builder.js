@@ -20,7 +20,7 @@ limitations under the License.
 
  	var vendorDefined = {
 		attributeHttpPath: "v-http-path",
-		attributeQueryTags: "query-tags"
+		attributeQueryTags: "v-query-tags"
 	}
 
 	// The Databricks cluster ODBC endpoint
