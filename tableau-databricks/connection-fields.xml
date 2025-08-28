@@ -50,7 +50,9 @@ limitations under the License. -->
 
     <!-- /Authentication -->
 
-    <field name="v-query-tags" label="@string/query_tags_prompt/" category="authentication" value-type="string" optional="true" />
+    <field name="v-query-tags" label="@string/query_tags_prompt/" category="authentication" value-type="string" optional="true">
+        <validation-rule reg-exp="^([^,:/.=-]+:[^,:]{0,128})(,[^,:/.=-]+:[^,:]{0,128})*$" />
+    </field>
 
     <!-- Proxy -->
 
