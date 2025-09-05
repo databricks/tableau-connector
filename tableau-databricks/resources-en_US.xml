@@ -18,6 +18,7 @@ limitations under the License. -->
   <string name="databricks">Databricks</string>
   <string name="server_prompt">Server Hostname</string>
   <string name="http_path_prompt">HTTP Path</string>
+  <string name="query_tags_prompt">Query Tags (key:value,key2:value2)</string>
 
   <string name="authentication_prompt">Authentication</string>
   <string name="authentication_label_oauth">Databricks login (recommended)</string>

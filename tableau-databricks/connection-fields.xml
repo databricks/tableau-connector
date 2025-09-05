@@ -50,6 +50,11 @@ limitations under the License. -->
 
     <!-- /Authentication -->
 
+    <field name="v-query-tags" label="@string/query_tags_prompt/" category="advanced" value-type="string" optional="true">
+        <!-- Validates k1:v1,k2:v2 format. Keys cannot contain ,:/.=- chars and values cannot contain ,: chars. Each value cannot exceed 128 chars -->
+        <validation-rule reg-exp="^([^,:/.=-]+:[^,:]{0,128})(,[^,:/.=-]+:[^,:]{0,128})*$" />
+    </field>
+
     <!-- Proxy -->
 
     <!-- TODO: enable once 'secure="true"' is supported -->

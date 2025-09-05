@@ -19,7 +19,8 @@ limitations under the License.
 	var params = {};
 
  	var vendorDefined = {
-		attributeHttpPath: "v-http-path"
+		attributeHttpPath: "v-http-path",
+		attributeQueryTags: "v-query-tags"
 	}
 
 	// The Databricks cluster ODBC endpoint
@@ -98,6 +99,11 @@ limitations under the License.
 
 	for (var key in odbcConnectStringExtrasMap) {
 		params[key] = odbcConnectStringExtrasMap[key];
+	}
+
+	// Handle query tags if provided (takes precedence over ODBC extras)
+	if (attr[vendorDefined.attributeQueryTags]) {
+		params["SSP_QUERY_TAGS"] = attr[vendorDefined.attributeQueryTags];
 	}
 
 	var formattedParams = [];
