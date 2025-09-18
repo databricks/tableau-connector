@@ -16,22 +16,22 @@ See the License for the specific language governing permissions and
 limitations under the License. -->
 <resources>
   <string name="databricks">Databricks</string>
-  <string name="server_prompt">Server Hostname</string>
-  <string name="http_path_prompt">HTTP Path</string>
+  <string name="server_prompt">Hostnaam van server</string>
+  <string name="http_path_prompt">HTTP-pad</string>
 
-  <string name="authentication_prompt">Authentication</string>
-  <string name="authentication_label_oauth">Databricks login (recommended)</string>
-  <string name="authentication_label_token">Personal access token</string>
+  <string name="authentication_prompt">Verificatie</string>
+  <string name="authentication_label_oauth">Databricks-inloggegevens (aanbevolen)</string>
+  <string name="authentication_label_token">Persoonlijk toegangstoken</string>
   <string name="authentication_label_sp">Service Principal OAuth</string>
-  <string name="authentication_oauth_advanced_options_prompt">Advanced configuration for OAuth</string>
-  <string name="authentication_oauth_endpoint_prompt">OAuth Endpoint e.g. https://[Server Hostname]/oidc</string>
+  <string name="authentication_oauth_advanced_options_prompt">Geavanceerde configuratie voor OAuth</string>
+  <string name="authentication_oauth_endpoint_prompt">OAuth-eindpunt bijv. https://[Server Hostname]/oidc</string>
   
-  <string name="username_prompt">Client ID</string>
+  <string name="username_prompt">Client-ID</string>
   <string name="password_prompt">Token</string>
 
-  <string name="odbc_extra_config_prompt">Extra ODBC options ('key=value;key2=value2;...')</string>
+  <string name="odbc_extra_config_prompt">Extra ODBC-opties (’key=value;key2=value2;...’)</string>
 
-  <string name="metadata_catalog_prompt">Catalog</string>
+  <string name="metadata_catalog_prompt">Catalogus</string>
   <string name="metadata_database_prompt">Database</string>
-  <string name="metadata_table_prompt">Table</string>
+  <string name="metadata_table_prompt">Tabel</string>
 </resources>

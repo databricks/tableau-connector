@@ -21,9 +21,10 @@ limitations under the License. -->
     <field name="server" label="@string/server_prompt/" category="endpoint" value-type="string">
         <validation-rule reg-exp="^([0-9A-Za-z-]+\.)+([0-9A-Za-z-]+)$" />
     </field>
-    <!-- /Endpoint -->
-    
+
     <field name="v-http-path" label="@string/http_path_prompt/" category="endpoint" value-type="string" />
+
+    <!-- /Endpoint -->
 
     <!-- Authentication -->
     <field name="authentication" label="@string/authentication_prompt/" category="authentication" value-type="selection" default-value="oauth">
@@ -34,26 +35,22 @@ limitations under the License. -->
         </selection-group>
     </field>
 
-    <field name="username" label="@string/sp_client_id_prompt/" category="authentication" value-type="string">
+    <field name="username" label="@string/username_prompt/" category="authentication" value-type="string">
         <conditions>
+            <condition field="authentication" value="auth-user-pass" />
             <condition field="authentication" value="auth-client-creds" />
         </conditions>
     </field>
 
     <field name="password" label="@string/password_prompt/" category="authentication" value-type="string" secure="true">
-    <conditions>
+     <conditions>
+         <condition field="authentication" value="auth-user-pass" />
          <condition field="authentication" value="auth-pass" />
          <condition field="authentication" value="auth-client-creds" />
       </conditions>
     </field>
 
-
     <!-- /Authentication -->
-
-    <field name="v-query-tags" label="@string/query_tags_prompt/" category="advanced" value-type="string" optional="true" placeholder="E.g., team:marketing,dashboard:analytics">
-        <!-- Validates k1:v1,k2:v2 format. Keys cannot contain ,:/.=- chars and values cannot contain ,: chars. Each value cannot exceed 128 chars -->
-        <validation-rule reg-exp="^([^,:/.=-]+:[^,:]{0,128})(,[^,:/.=-]+:[^,:]{0,128})*$" />
-    </field>
 
     <!-- Proxy -->
 
@@ -88,7 +85,7 @@ limitations under the License. -->
     </field>-->
     <!-- /Proxy -->
 
-   <field name="odbc-connect-string-extras" label="@string/odbc_extra_config_prompt/" category="advanced" value-type="string" optional="true">
+    <field name="odbc-connect-string-extras" label="@string/odbc_extra_config_prompt/" category="advanced" value-type="string" optional="true">
         <!-- valid keys: test, Test, SSP_spark.test -->
         <!-- valid values: word, Word, some-arbitrary*string, {has-semicolon;}, {has{closing}}bracket;} -->
         <validation-rule reg-exp="^(([a-zA-Z0-9_.-]+)=(([^{};]*)|(\{((\}\}|[^}])*)\}));)*(([a-zA-Z0-9_.-]+)=(([^{};]*)|(\{((\}\}|[^}])*)\})))?$" />

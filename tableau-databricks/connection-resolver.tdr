@@ -28,7 +28,6 @@ limitations under the License.
                     <attr>class</attr>
                     <attr>server</attr>
                     <attr>v-http-path</attr>
-                    <attr>v-query-tags</attr>
                     <attr>dbname</attr>
                     <attr>one-time-sql</attr>
                     <attr>authentication</attr>
@@ -46,7 +45,7 @@ limitations under the License.
             <driver-name type='regex'>Databricks.*</driver-name>
         </driver-match>
         <driver-match>
-            <driver-name type='regex'>Simba Spark.*</driver-name>
+            <driver-name type='regex' simba-oem='true'>Simba Spark.*</driver-name>
             <driver-version min="2.6.15"/>
         </driver-match>
     </driver-resolver>
