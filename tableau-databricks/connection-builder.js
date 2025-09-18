@@ -19,7 +19,8 @@ limitations under the License.
 	var params = {};
 
 	var vendorDefined = {
-		attributeHttpPath: "v-http-path"
+		attributeHttpPath: "v-http-path",
+		attributeQueryTags: "v-query-tags"
 	}
 
 	// The Databricks cluster ODBC endpoint
@@ -34,6 +35,7 @@ limitations under the License.
 	if (attr[connectionHelper.attributeDatabase] &&
 	    attr[connectionHelper.attributeDatabase] !== "SPARK") {
 		params["CATALOG"] = attr[connectionHelper.attributeDatabase];
+		params["SSP_databricks.catalog"] = attr[connectionHelper.attributeDatabase];
 		params["SSP_databricks.catalog"] = attr[connectionHelper.attributeDatabase];
 	}
 
@@ -104,6 +106,11 @@ limitations under the License.
 		params[key] = odbcConnectStringExtrasMap[key];
 	}
 
+	// Handle query tags if provided (takes precedence over ODBC extras)
+	if (attr[vendorDefined.attributeQueryTags]) {
+		params["SSP_QUERY_TAGS"] = attr[vendorDefined.attributeQueryTags];
+	}
+	
 	var formattedParams = [];
 	formattedParams.push(
 		connectionHelper.formatKeyValuePair(
