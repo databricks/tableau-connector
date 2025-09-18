@@ -58,16 +58,3 @@ All notable changes to the Tableau Databricks Connector will be documented in th
 - **Consistent Terminology**: Standardized terminology across all supported languages
 - **Advanced Configuration**: Query tags field placed in advanced category for power users
 
----
-
-## Previous Versions
-
-### [18.0] - master branch
-- Base version with core Databricks connectivity
-- Basic OAuth and token authentication support
-- Multi-language support for major languages
-- Standard Spark SQL dialect support
-
----
-
-**Note**: This changelog covers changes from the `compare_tableau_diff` branch compared to the `master` branch. The changes focus on improving SQL compatibility, expanding internationalization support, enhancing security, adding query tags functionality, and streamlining the user experience.
