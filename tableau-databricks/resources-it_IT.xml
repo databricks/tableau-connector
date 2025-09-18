@@ -16,23 +16,22 @@ See the License for the specific language governing permissions and
 limitations under the License. -->
 <resources>
   <string name="databricks">Databricks</string>
-  <string name="server_prompt">Server Hostname</string>
-  <string name="http_path_prompt">HTTP Path</string>
-  <string name="query_tags_prompt">Query Tags (key:value,key2:value2)</string>
+  <string name="server_prompt">Nome host server</string>
+  <string name="http_path_prompt">Percorso HTTP</string>
 
-  <string name="authentication_prompt">Authentication</string>
-  <string name="authentication_label_oauth">Databricks login (recommended)</string>
-  <string name="authentication_label_token">Personal access token</string>
-  <string name="authentication_label_user_pass">Basic auth (legacy)</string>
-  <string name="authentication_oauth_advanced_options_prompt">Advanced configuration for OAuth</string>
-  <string name="authentication_oauth_endpoint_prompt">OAuth Endpoint e.g. https://[Server Hostname]/oidc</string>
+  <string name="authentication_prompt">Autenticazione</string>
+  <string name="authentication_label_oauth">Accesso Databricks (consigliato)</string>
+  <string name="authentication_label_token">Token di accesso personale</string>
+  <string name="authentication_label_sp">OAuth entità servizio</string>
+  <string name="authentication_oauth_advanced_options_prompt">Configurazione avanzata per OAuth</string>
+  <string name="authentication_oauth_endpoint_prompt">Endpoint OAuth, ad esempio https://[nome host server]/oidc</string>
+  
+  <string name="username_prompt">ID client</string>
+  <string name="password_prompt">Token</string>
 
-  <string name="username_prompt">Username</string>
-  <string name="password_prompt">Password</string>
+  <string name="odbc_extra_config_prompt">Opzioni ODBC aggiuntive (“chiave=valore;chiave2=valore2;...”)</string>
 
-  <string name="odbc_extra_config_prompt">Extra ODBC options ('key=value;key2=value2;...')</string>
-
-  <string name="metadata_catalog_prompt">Catalog</string>
+  <string name="metadata_catalog_prompt">Catalogo</string>
   <string name="metadata_database_prompt">Database</string>
-  <string name="metadata_table_prompt">Table</string>
+  <string name="metadata_table_prompt">Tabella</string>
 </resources>

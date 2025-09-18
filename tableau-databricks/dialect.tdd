@@ -280,6 +280,165 @@ limitations under the License.
       <formula>COUNT(DISTINCT %1)</formula>
       <unagg-formula>(CASE WHEN (%1 IS NULL) THEN 0 ELSE 1 END)</unagg-formula>
       <argument type='bool' />
+    
+	    <!-- 
+    Override ANALYTIC_WINDOW_MIN functions inherited from Hive12Dialect.
+    Databricks doesn't support the ANALYTIC_WINDOW_MIN function name and should use MIN instead.
+    -->
+	</function>
+	    <function group='system' name='ANALYTIC_WINDOW_MIN' return-type='bool'>
+        <formula>MIN(%1)</formula>
+        <argument type='bool' />
+    </function>
+    
+    <function group='system' name='ANALYTIC_WINDOW_MIN' return-type='int'>
+        <formula>MIN(%1)</formula>
+        <argument type='int' />
+    </function>
+    
+    <function group='system' name='ANALYTIC_WINDOW_MIN' return-type='real'>
+        <formula>MIN(%1)</formula>
+        <argument type='real' />
+    </function>
+    
+    <function group='system' name='ANALYTIC_WINDOW_MIN' return-type='str'>
+        <formula>MIN(%1)</formula>
+        <argument type='str' />
+    </function>
+    
+    <function group='system' name='ANALYTIC_WINDOW_MIN' return-type='date'>
+        <formula>MIN(%1)</formula>
+        <argument type='date' />
+    </function>
+    
+    <function group='system' name='ANALYTIC_WINDOW_MIN' return-type='datetime'>
+        <formula>MIN(%1)</formula>
+        <argument type='datetime' />
+    </function>
+	
+	<!-- 
+    Override ANALYTIC_WINDOW_MAX functions inherited from Hive12Dialect.
+    Databricks doesn't support the ANALYTIC_WINDOW_MAX function name and should use MAX instead.
+    -->
+    <function group='system' name='ANALYTIC_WINDOW_MAX' return-type='bool'>
+        <formula>MAX(%1)</formula>
+        <argument type='bool' />
+    </function>
+    
+    <function group='system' name='ANALYTIC_WINDOW_MAX' return-type='int'>
+        <formula>MAX(%1)</formula>
+        <argument type='int' />
+    </function>
+    
+    <function group='system' name='ANALYTIC_WINDOW_MAX' return-type='real'>
+        <formula>MAX(%1)</formula>
+        <argument type='real' />
+    </function>
+    
+    <function group='system' name='ANALYTIC_WINDOW_MAX' return-type='str'>
+        <formula>MAX(%1)</formula>
+        <argument type='str' />
+    </function>
+    
+    <function group='system' name='ANALYTIC_WINDOW_MAX' return-type='date'>
+        <formula>MAX(%1)</formula>
+        <argument type='date' />
+    </function>
+    
+    <function group='system' name='ANALYTIC_WINDOW_MAX' return-type='datetime'>
+        <formula>MAX(%1)</formula>
+        <argument type='datetime' />
+    </function>
+
+    <!-- 
+    Override ANALYTIC_WINDOW_SUM functions inherited from Hive12Dialect.
+    Databricks doesn't support the ANALYTIC_WINDOW_SUM function name and should use SUM instead.
+    -->
+    <function group='system' name='ANALYTIC_WINDOW_SUM' return-type='int'>
+        <formula>SUM(%1)</formula>
+        <argument type='int' />
+    </function>
+    
+    <function group='system' name='ANALYTIC_WINDOW_SUM' return-type='real'>
+        <formula>SUM(%1)</formula>
+        <argument type='real' />
+    </function>
+
+    <!-- 
+    Override ANALYTIC_WINDOW_AVG functions inherited from Hive12Dialect.
+    Databricks doesn't support the ANALYTIC_WINDOW_AVG function name and should use AVG instead.
+    -->
+    <function group='system' name='ANALYTIC_WINDOW_AVG' return-type='real'>
+        <formula>AVG(%1)</formula>
+        <argument type='real' />
+    </function>
+
+    <!-- 
+    Override ANALYTIC_WINDOW_COUNT functions inherited from Hive12Dialect.
+    Databricks doesn't support the ANALYTIC_WINDOW_COUNT function name and should use COUNT instead.
+    -->
+    <function group='system' name='ANALYTIC_WINDOW_COUNT' return-type='int'>
+        <formula>COUNT(%1)</formula>
+        <argument type='bool' />
+    </function>
+    
+    <function group='system' name='ANALYTIC_WINDOW_COUNT' return-type='int'>
+        <formula>COUNT(%1)</formula>
+        <argument type='int' />
+    </function>
+    
+    <function group='system' name='ANALYTIC_WINDOW_COUNT' return-type='int'>
+        <formula>COUNT(%1)</formula>
+        <argument type='real' />
+    </function>
+    
+    <function group='system' name='ANALYTIC_WINDOW_COUNT' return-type='int'>
+        <formula>COUNT(%1)</formula>
+        <argument type='str' />
+    </function>
+    
+    <function group='system' name='ANALYTIC_WINDOW_COUNT' return-type='int'>
+        <formula>COUNT(%1)</formula>
+        <argument type='date' />
+    </function>
+    
+    <function group='system' name='ANALYTIC_WINDOW_COUNT' return-type='int'>
+        <formula>COUNT(%1)</formula>
+        <argument type='datetime' />
+    </function>
+
+    <!-- 
+    Override ANALYTIC_WINDOW_COUNTD functions inherited from Hive12Dialect.
+    Databricks doesn't support the ANALYTIC_WINDOW_COUNTD function name and should use COUNT instead.
+    -->
+    <function group='system' name='ANALYTIC_WINDOW_COUNTD' return-type='int'>
+        <formula>COUNT(DISTINCT %1)</formula>
+        <argument type='bool' />
+    </function>
+    
+    <function group='system' name='ANALYTIC_WINDOW_COUNTD' return-type='int'>
+        <formula>COUNT(DISTINCT %1)</formula>
+        <argument type='int' />
+    </function>
+    
+    <function group='system' name='ANALYTIC_WINDOW_COUNTD' return-type='int'>
+        <formula>COUNT(DISTINCT %1)</formula>
+        <argument type='real' />
+    </function>
+    
+    <function group='system' name='ANALYTIC_WINDOW_COUNTD' return-type='int'>
+        <formula>COUNT(DISTINCT %1)</formula>
+        <argument type='str' />
+    </function>
+    
+    <function group='system' name='ANALYTIC_WINDOW_COUNTD' return-type='int'>
+        <formula>COUNT(DISTINCT %1)</formula>
+        <argument type='date' />
+    </function>
+    
+    <function group='system' name='ANALYTIC_WINDOW_COUNTD' return-type='int'>
+        <formula>COUNT(DISTINCT %1)</formula>
+        <argument type='datetime' />
     </function>
 
     <date-function name='DATENAME' return-type='str'>
@@ -464,6 +623,7 @@ limitations under the License.
       <formula part='right'>REVERSE(SPLIT(REVERSE(%1),REVERSE(%2))[ABS(%3)-1])</formula>
     </native-split-function>
 
+
 </function-map>
 
 <sql-format>
@@ -496,6 +656,18 @@ limitations under the License.
         <part name='second' value='SECOND' />
         </date-part-group>
 </date-parts>
+
+<format-create-table>
+  <formula>CREATE </formula>
+  <formula predicate='GlobalTemp'>GLOBAL </formula>
+  <formula predicate='LocalTemp'>LOCAL </formula>
+  <formula predicate='AnyTemp'>TEMPORARY </formula>
+  <formula>TABLE %n (</formula>
+  <formula>%f</formula>
+  <formula>)</formula>
+  <formula predicate='AnyTemp'> ON COMMIT PRESERVE ROWS</formula>
+  <formula> USING DELTA TBLPROPERTIES (delta.columnMapping.mode = 'name')</formula>
+</format-create-table>
 	
 <format-is-distinct value='Keyword' />
 <start-of-week-format value='String' />

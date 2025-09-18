@@ -18,7 +18,7 @@ limitations under the License.
 (function dsbuilder(attr) {
 	var params = {};
 
- 	var vendorDefined = {
+	var vendorDefined = {
 		attributeHttpPath: "v-http-path",
 		attributeQueryTags: "v-query-tags"
 	}
@@ -65,7 +65,7 @@ limitations under the License.
 			params["Auth_Client_Secret"] = attr[connectionHelper.attributePassword];
 			params["Auth_Scope"] = "sql";
 			break;
-
+	
 		default:
 			return connectionHelper.ThrowTableauException("Unsupported authentication mode: " + authenticationMode);
 	}
@@ -88,6 +88,9 @@ limitations under the License.
 	// Prevent the driver to set properties by executing statements
 	params["ApplySSPWithQueries"] = "0";
 
+	// Allow driver to access UC Volumes for Prep Write to DB
+	params["StagingAllowedLocalPaths"] = connectionHelper.GetTempFilePath();
+
 	// Load ODBC connection string extras
 	var odbcConnectStringExtrasMap = {};
 	const attributeODBCConnectStringExtras = connectionHelper.attributeODBCConnectStringExtras;
@@ -105,7 +108,7 @@ limitations under the License.
 	if (attr[vendorDefined.attributeQueryTags]) {
 		params["SSP_QUERY_TAGS"] = attr[vendorDefined.attributeQueryTags];
 	}
-
+	
 	var formattedParams = [];
 	formattedParams.push(
 		connectionHelper.formatKeyValuePair(

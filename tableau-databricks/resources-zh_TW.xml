@@ -16,23 +16,22 @@ See the License for the specific language governing permissions and
 limitations under the License. -->
 <resources>
   <string name="databricks">Databricks</string>
-  <string name="server_prompt">Server Hostname</string>
-  <string name="http_path_prompt">HTTP Path</string>
-  <string name="query_tags_prompt">Query Tags (key:value,key2:value2)</string>
+  <string name="server_prompt">伺服器主機名稱</string>
+  <string name="http_path_prompt">HTTP 路徑</string>
 
-  <string name="authentication_prompt">Authentication</string>
-  <string name="authentication_label_oauth">Databricks login (recommended)</string>
-  <string name="authentication_label_token">Personal access token</string>
-  <string name="authentication_label_user_pass">Basic auth (legacy)</string>
-  <string name="authentication_oauth_advanced_options_prompt">Advanced configuration for OAuth</string>
-  <string name="authentication_oauth_endpoint_prompt">OAuth Endpoint e.g. https://[Server Hostname]/oidc</string>
+  <string name="authentication_prompt">驗證</string>
+  <string name="authentication_label_oauth">Databricks 登入（建議）</string>
+  <string name="authentication_label_token">個人存取權杖</string>
+  <string name="authentication_label_sp">服務主體 OAuth</string>
+  <string name="authentication_oauth_advanced_options_prompt">OAuth 的進階配置</string>
+  <string name="authentication_oauth_endpoint_prompt">OAuth 端點，例如：https://[Server Hostname]/oidc</string>
+  
+  <string name="username_prompt">用戶端識別碼</string>
+  <string name="password_prompt">權杖</string>
 
-  <string name="username_prompt">Username</string>
-  <string name="password_prompt">Password</string>
+  <string name="odbc_extra_config_prompt">額外的 ODBC 選項 (「key=value;key2=value2;...」)</string>
 
-  <string name="odbc_extra_config_prompt">Extra ODBC options ('key=value;key2=value2;...')</string>
-
-  <string name="metadata_catalog_prompt">Catalog</string>
-  <string name="metadata_database_prompt">Database</string>
-  <string name="metadata_table_prompt">Table</string>
+  <string name="metadata_catalog_prompt">目錄</string>
+  <string name="metadata_database_prompt">資料庫</string>
+  <string name="metadata_table_prompt">資料表</string>
 </resources>

@@ -22,8 +22,8 @@
 
     <capabilities>
         <entry>
-           <key>OAUTH_CAP_SUPPORTS_STATE</key>
-           <value>true</value>
+            <key>OAUTH_CAP_SUPPORTS_STATE</key>
+            <value>true</value>
         </entry>
         <entry>
             <key>OAUTH_CAP_REQUIRES_PROMPT_SELECT_ACCOUNT</key>
@@ -57,11 +57,15 @@
             <key>OAUTH_CAP_SUPPORTS_GET_USERINFO_FROM_ID_TOKEN</key>
             <value>true</value>
         </entry>
-	    <entry>
+        <entry>
             <key>OAUTH_CAP_INFER_INSTANCE_URL_FROM_SERVER</key>
             <value>true</value>
         </entry>
-    </capabilities>
+        <entry>
+            <key>OAUTH_CAP_SINGLE_USE_REFRESH_TOKEN</key>
+            <value>true</value>
+        </entry>
+   </capabilities>
     <accessTokenResponseMaps>
         <entry>
             <key>ACCESSTOKEN</key>
