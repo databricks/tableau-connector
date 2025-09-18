@@ -1,6 +1,6 @@
 # Changelog - Tableau Databricks Connector
 
-## [18.1] - compare_tableau_diff branch
+## [1.0.0] - compare_tableau_diff branch
 
 ### Added
 - Query tags support for advanced users with validation rules

@@ -16,7 +16,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<connector-plugin class='databricks' superclass='spark' plugin-version='1.0' name='@string/databricks/' version='18.1'>
+<connector-plugin class='databricks' superclass='spark' plugin-version='1.0.0' name='@string/databricks/' version='18.1'>
 <vendor-information>
     <company name="Databricks"/>
     <support-link url="https://www.tableau.com/support"/>
