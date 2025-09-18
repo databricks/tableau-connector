@@ -20,16 +20,16 @@ limitations under the License. -->
   <string name="http_path_prompt">Chemin d’accès HTTP</string>
 
   <string name="authentication_prompt">Authentification</string>
-  <string name="authentication_label_oauth">Connexion Databricks (recommandé)</string>
+  <string name="authentication_label_oauth">Connexion Databricks (recommandée)</string>
   <string name="authentication_label_token">Jeton d’accès personnel</string>
-  <string name="authentication_label_sp">Principal de service OAuth</string>
+  <string name="authentication_label_sp">OAuth Service Principal</string>
   <string name="authentication_oauth_advanced_options_prompt">Configuration avancée pour OAuth</string>
-  <string name="authentication_oauth_endpoint_prompt">Point de terminaison OAuth, par exemple https://[Server Hostname]/oidc</string>
+  <string name="authentication_oauth_endpoint_prompt">OAuth Endpoint ex. https://[Server Hostname]/oidc</string>
   
   <string name="username_prompt">ID client</string>
   <string name="password_prompt">Jeton</string>
 
-  <string name="odbc_extra_config_prompt">Options ODBC supplémentaires (“key=value;key2=value2;...”)</string>
+  <string name="odbc_extra_config_prompt">Options ODBC supplémentaires (« key=value;key2=value2;... »)</string>
 
   <string name="metadata_catalog_prompt">Catalogue</string>
   <string name="metadata_database_prompt">Base de données</string>

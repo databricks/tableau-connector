@@ -18,9 +18,8 @@ limitations under the License.
 (function dsbuilder(attr) {
 	var params = {};
 
- 	var vendorDefined = {
-		attributeHttpPath: "v-http-path",
-		attributeQueryTags: "v-query-tags"
+	var vendorDefined = {
+		attributeHttpPath: "v-http-path"
 	}
 
 	// The Databricks cluster ODBC endpoint
@@ -34,7 +33,8 @@ limitations under the License.
 	// attributeDatabase contains the catalog name.
 	if (attr[connectionHelper.attributeDatabase] &&
 	    attr[connectionHelper.attributeDatabase] !== "SPARK") {
-		params["Catalog"] = attr[connectionHelper.attributeDatabase];
+		params["CATALOG"] = attr[connectionHelper.attributeDatabase];
+		params["SSP_databricks.catalog"] = attr[connectionHelper.attributeDatabase];
 	}
 
 	var authenticationMode = attr[connectionHelper.attributeAuthentication];
@@ -65,7 +65,7 @@ limitations under the License.
 			params["Auth_Client_Secret"] = attr[connectionHelper.attributePassword];
 			params["Auth_Scope"] = "sql";
 			break;
-
+	
 		default:
 			return connectionHelper.ThrowTableauException("Unsupported authentication mode: " + authenticationMode);
 	}
@@ -88,6 +88,9 @@ limitations under the License.
 	// Prevent the driver to set properties by executing statements
 	params["ApplySSPWithQueries"] = "0";
 
+	// Allow driver to access UC Volumes for Prep Write to DB
+	params["StagingAllowedLocalPaths"] = connectionHelper.GetTempFilePath();
+
 	// Load ODBC connection string extras
 	var odbcConnectStringExtrasMap = {};
 	const attributeODBCConnectStringExtras = connectionHelper.attributeODBCConnectStringExtras;
@@ -99,11 +102,6 @@ limitations under the License.
 
 	for (var key in odbcConnectStringExtrasMap) {
 		params[key] = odbcConnectStringExtrasMap[key];
-	}
-
-	// Handle query tags if provided (takes precedence over ODBC extras)
-	if (attr[vendorDefined.attributeQueryTags]) {
-		params["SSP_QUERY_TAGS"] = attr[vendorDefined.attributeQueryTags];
 	}
 
 	var formattedParams = [];
