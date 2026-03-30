@@ -36,6 +36,8 @@ limitations under the License.
                     <attr>password</attr>
                     <attr>authentication-type</attr>
                     <attr>odbc-connect-string-extras</attr>
+                    <attr>v-oidc-discovery-endpoint</attr>
+                    <attr>v-auth-scope</attr>
                 </attribute-list>
             </required-attributes>
         </connection-normalizer>
